@@ -45,3 +45,8 @@ As a reminder, [SwiftGen](https://github.com/SwiftGen/SwiftGen) is a tool that g
 There's a custom `Run script` build phases that runs SwiftGen at each build. However, the generated files are kept under version control, so you can build the project _without_ installing SwiftGen.  
 I decided to use it only for storyboards and localized strings, since I didn't need custom fonts, colors or images.
 You'll need to have SwiftGen installed system-wide as explained in their README. I would add it as a CocoaPod, so it's included in the repository, but in this case I'm required to use Carthage.
+
+## Carhtage
+As a reminder [Carhtage](https://github.com/Carthage/Carthage) is a dependency manager for Cocoa.  
+It is set up as explained is their README, and the `Carthage/Build` folder is kept under version control, so you can build the project without having to install Carthage on your machine.  
+All Carthage-related files are kept in the `depencendies` folder, to keep the `project` folder clean. The `project` folder references the built frameworks using a symbolic link (from `Frameworks` to `Carthage/Build/iOS`).

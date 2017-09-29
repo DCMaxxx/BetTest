@@ -1,0 +1,2 @@
+# Reactive Extensions
+github "ReactiveX/RxSwift" ~> 3.0

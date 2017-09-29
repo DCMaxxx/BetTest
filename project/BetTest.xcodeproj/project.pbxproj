@@ -10,6 +10,9 @@
 		9C1B291B1F7E6BC500B99850 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B291A1F7E6BC500B99850 /* Storyboards.swift */; };
 		9C1B291E1F7E6D5700B99850 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C1B29201F7E6D5700B99850 /* Localizable.strings */; };
 		9C1B29241F7E6EDE00B99850 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B29231F7E6EDE00B99850 /* Localizable.swift */; };
+		9C1B29301F7E7B4300B99850 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1B292D1F7E7B4300B99850 /* RxBlocking.framework */; };
+		9C1B29311F7E7B4300B99850 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1B292E1F7E7B4300B99850 /* RxCocoa.framework */; };
+		9C1B29321F7E7B4300B99850 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1B292F1F7E7B4300B99850 /* RxSwift.framework */; };
 		9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F4E1F7E371E0006A957 /* AppDelegate.swift */; };
 		9CF28F511F7E371E0006A957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F501F7E371E0006A957 /* ViewController.swift */; };
 		9CF28F541F7E371E0006A957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF28F521F7E371E0006A957 /* Main.storyboard */; };
@@ -33,6 +36,9 @@
 		9C1B29211F7E6D6600B99850 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9C1B29221F7E6E3100B99850 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9C1B29231F7E6EDE00B99850 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		9C1B292D1F7E7B4300B99850 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Frameworks/RxBlocking.framework; sourceTree = "<group>"; };
+		9C1B292E1F7E7B4300B99850 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Frameworks/RxCocoa.framework; sourceTree = "<group>"; };
+		9C1B292F1F7E7B4300B99850 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Frameworks/RxSwift.framework; sourceTree = "<group>"; };
 		9CF28F4B1F7E371E0006A957 /* BetTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF28F4E1F7E371E0006A957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CF28F501F7E371E0006A957 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C1B29301F7E7B4300B99850 /* RxBlocking.framework in Frameworks */,
+				9C1B29311F7E7B4300B99850 /* RxCocoa.framework in Frameworks */,
+				9C1B29321F7E7B4300B99850 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +81,23 @@
 			path = SwiftGen;
 			sourceTree = "<group>";
 		};
+		9C1B29251F7E7AB400B99850 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C1B292D1F7E7B4300B99850 /* RxBlocking.framework */,
+				9C1B292E1F7E7B4300B99850 /* RxCocoa.framework */,
+				9C1B292F1F7E7B4300B99850 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9CF28F421F7E371E0006A957 = {
 			isa = PBXGroup;
 			children = (
 				9CF28F4D1F7E371E0006A957 /* BetTest */,
 				9CF28F621F7E371E0006A957 /* BetTestTests */,
 				9CF28F4C1F7E371E0006A957 /* Products */,
+				9C1B29251F7E7AB400B99850 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +208,7 @@
 				9CF28F471F7E371E0006A957 /* Sources */,
 				9C1B29171F7E67E400B99850 /* Swiftlint */,
 				9C1B29191F7E693600B99850 /* Swiftgen */,
+				9C1B292C1F7E7AC800B99850 /* Carthage */,
 				9CF28F481F7E371E0006A957 /* Frameworks */,
 				9CF28F491F7E371E0006A957 /* Resources */,
 			);
@@ -310,6 +331,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftgen >/dev/null; then\n    swiftgen storyboards -t swift3 ./BetTest/Storyboards > ./BetTest/SwiftGen/Storyboards.swift\n    swiftgen strings -t structured-swift3 ./BetTest/Assets/Base.lproj/Localizable.strings > ./BetTest/SwiftGen/Localizable.swift\nelse\n    echo \"warning: SwiftGen not installed, download from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+		9C1B292C1F7E7AC800B99850 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Frameworks/RxBlocking.framework",
+				"$(SRCROOT)/Frameworks/RxCocoa.framework",
+				"$(SRCROOT)/Frameworks/RxSwift.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -488,6 +529,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UE6WRCAHK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/BetTest/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxime-dechalendar.BetTest";
@@ -501,6 +547,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UE6WRCAHK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/BetTest/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxime-dechalendar.BetTest";
