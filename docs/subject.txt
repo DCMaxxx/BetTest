@@ -1,0 +1,38 @@
+POC Deezer :
+
+Features :
+Create a small app that will list Deezer user's playlists. You can use a fixed user id (id: 4 is Deezer foundator).
+The playlists will be presented in a grid (3 colums) displaying playlist cover and title.
+When you click on a playlist you will display it.
+Display a playlist consist of displaying a header in a collapsing toolbar, showing playlist cover, title, author, formatted duration
+For listing the tracks, you have to lazy loading - load on scroll down.
+Track list display the title - artist name and formatted duration
+
+Requirements iOS:
+Using Xcode
+Using Swift 3
+Using Carthage
+Using MVVM
+Using Libraries : RxSwift, Alamofire
+Implement all the features above
+Format duration: HH:mm:ss
+
+Requirements Android:
+Using Android studio/gradle
+Using MVVM for activity/fragment
+Implement all the features above
+Format duration: HH:mm:ss
+Using the following library : RxJava2, RxAndroid2, RxLifecycle2, Retrofit, Fresco
+You can also use other libraries (support, butterknife, etc.)
+
+Api informations:
+https://developers.deezer.com/api/explorer
+
+GET user playlists : https://api.deezer.com/user/{userId}/playlists
+GET playlist informations : https://api.deezer.com/playlist/{playlistId}
+GET playlist tracks: https://api.deezer.com/playlist/{playlistId}/tracks
+
+
+Nice to have :
+
+Duration format testing.
