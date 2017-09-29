@@ -150,7 +150,6 @@
 				9CF28F771F7E42C20006A957 /* Info.plist */,
 			);
 			name = Resources;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		9CF28F791F7E42DA0006A957 /* Tests */ = {
@@ -159,7 +158,6 @@
 				9CF28F7A1F7E42F90006A957 /* BetTestTests.swift */,
 			);
 			name = Tests;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +168,7 @@
 			buildConfigurationList = 9CF28F681F7E371E0006A957 /* Build configuration list for PBXNativeTarget "BetTest" */;
 			buildPhases = (
 				9CF28F471F7E371E0006A957 /* Sources */,
+				9C1B29171F7E67E400B99850 /* Swiftlint */,
 				9CF28F481F7E371E0006A957 /* Frameworks */,
 				9CF28F491F7E371E0006A957 /* Resources */,
 			);
@@ -261,6 +260,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C1B29171F7E67E400B99850 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --config ../.swiftlint.yml\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9CF28F471F7E371E0006A957 /* Sources */ = {

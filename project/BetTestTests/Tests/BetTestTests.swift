@@ -10,5 +10,5 @@ import XCTest
 @testable import BetTest
 
 class BetTestTests: XCTestCase {
-    
+
 }
