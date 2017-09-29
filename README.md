@@ -17,7 +17,7 @@ open BetTest.xcodeproj
 # Project configuration
 
 ## Swift
-As demanded, the project uses Swift 3 (and specifically Swift 3.2), using the latest Xcode version at this time (`Xcode 9.0 (9A235)`).
+As demanded, the project uses Swift 3 (and specifically Swift 3.1), using the latest Swift 3 command line tools version at this time (`Xcode 8.3.3 (8E3004b)`).  
 
 ## Code signing
 `Automatically manage signing` is set, since this project is a test and does not need specific code signing settings (such as an Ad Hoc provisioning profile, APNS configuration...).  

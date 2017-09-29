@@ -57,7 +57,7 @@ enum StoryboardScene {
   enum Main: StoryboardType {
     static let storyboardName = "Main"
 
-    static let initialScene = InitialSceneType<ViewController>(storyboard: Main.self)
+    static let initialScene = InitialSceneType<BetTest.ViewController>(storyboard: Main.self)
   }
 }
 
