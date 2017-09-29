@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9C1B291B1F7E6BC500B99850 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B291A1F7E6BC500B99850 /* Storyboards.swift */; };
+		9C1B291E1F7E6D5700B99850 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C1B29201F7E6D5700B99850 /* Localizable.strings */; };
+		9C1B29241F7E6EDE00B99850 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B29231F7E6EDE00B99850 /* Localizable.swift */; };
 		9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F4E1F7E371E0006A957 /* AppDelegate.swift */; };
 		9CF28F511F7E371E0006A957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F501F7E371E0006A957 /* ViewController.swift */; };
 		9CF28F541F7E371E0006A957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF28F521F7E371E0006A957 /* Main.storyboard */; };
@@ -28,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		9C1B291A1F7E6BC500B99850 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		9C1B29211F7E6D6600B99850 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9C1B29221F7E6E3100B99850 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9C1B29231F7E6EDE00B99850 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		9CF28F4B1F7E371E0006A957 /* BetTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF28F4E1F7E371E0006A957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CF28F501F7E371E0006A957 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 		9C1B29181F7E690500B99850 /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
+				9C1B29231F7E6EDE00B99850 /* Localizable.swift */,
 				9C1B291A1F7E6BC500B99850 /* Storyboards.swift */,
 			);
 			path = SwiftGen;
@@ -135,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF28F551F7E371E0006A957 /* Assets.xcassets */,
+				9C1B29201F7E6D5700B99850 /* Localizable.strings */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -241,6 +248,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 9CF28F421F7E371E0006A957;
 			productRefGroup = 9CF28F4C1F7E371E0006A957 /* Products */;
@@ -259,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF28F591F7E371E0006A957 /* LaunchScreen.storyboard in Resources */,
+				9C1B291E1F7E6D5700B99850 /* Localizable.strings in Resources */,
 				9CF28F561F7E371E0006A957 /* Assets.xcassets in Resources */,
 				9CF28F541F7E371E0006A957 /* Main.storyboard in Resources */,
 			);
@@ -300,7 +309,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftgen >/dev/null; then\n    swiftgen storyboards -t swift3 ./BetTest/Storyboards > ./BetTest/SwiftGen/Storyboards.swift\nelse\n    echo \"warning: SwiftGen not installed, download from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+			shellScript = "if which swiftgen >/dev/null; then\n    swiftgen storyboards -t swift3 ./BetTest/Storyboards > ./BetTest/SwiftGen/Storyboards.swift\n    swiftgen strings -t structured-swift3 ./BetTest/Assets/Base.lproj/Localizable.strings > ./BetTest/SwiftGen/Localizable.swift\nelse\n    echo \"warning: SwiftGen not installed, download from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -311,6 +320,7 @@
 			files = (
 				9C1B291B1F7E6BC500B99850 /* Storyboards.swift in Sources */,
 				9CF28F511F7E371E0006A957 /* ViewController.swift in Sources */,
+				9C1B29241F7E6EDE00B99850 /* Localizable.swift in Sources */,
 				9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +344,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9C1B29201F7E6D5700B99850 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C1B29211F7E6D6600B99850 /* fr */,
+				9C1B29221F7E6E3100B99850 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9CF28F521F7E371E0006A957 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -357,6 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -401,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -415,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -453,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
