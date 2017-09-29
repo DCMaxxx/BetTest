@@ -1,3 +1,0 @@
-[submodule "submodules/SwiftLintRules"]
-	path = submodules/SwiftLintRules
-	url = git@github.com:Wopamax/SwiftLintRules.git

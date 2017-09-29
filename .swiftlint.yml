@@ -1,1 +1,19 @@
-submodules/SwiftLintRules/.swiftlint.yml
+disabled_rules:
+  - force_cast
+  - line_length
+  - cyclomatic_complexity
+
+opt_in_rules:
+  - empty_count
+  - force_unwrapping
+  - missing_docs
+
+variable_name:
+  min_length:
+    warning: 0
+    error: 0
+
+function_body_length: 60
+
+excluded:
+  - BetTest/SwiftGen
