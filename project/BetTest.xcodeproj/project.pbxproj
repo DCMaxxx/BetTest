@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C1B291B1F7E6BC500B99850 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B291A1F7E6BC500B99850 /* Storyboards.swift */; };
 		9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F4E1F7E371E0006A957 /* AppDelegate.swift */; };
 		9CF28F511F7E371E0006A957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F501F7E371E0006A957 /* ViewController.swift */; };
 		9CF28F541F7E371E0006A957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF28F521F7E371E0006A957 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C1B291A1F7E6BC500B99850 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		9CF28F4B1F7E371E0006A957 /* BetTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF28F4E1F7E371E0006A957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CF28F501F7E371E0006A957 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C1B29181F7E690500B99850 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				9C1B291A1F7E6BC500B99850 /* Storyboards.swift */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
 		9CF28F421F7E371E0006A957 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 			children = (
 				9CF28F6E1F7E3FFE0006A957 /* View Controllers */,
 				9CF28F6F1F7E40410006A957 /* App Delegate */,
+				9C1B29181F7E690500B99850 /* SwiftGen */,
 				9CF28F701F7E40560006A957 /* Storyboards */,
 				9CF28F711F7E406D0006A957 /* Assets */,
 				9CF28F721F7E40770006A957 /* Resources */,
@@ -169,6 +180,7 @@
 			buildPhases = (
 				9CF28F471F7E371E0006A957 /* Sources */,
 				9C1B29171F7E67E400B99850 /* Swiftlint */,
+				9C1B29191F7E693600B99850 /* Swiftgen */,
 				9CF28F481F7E371E0006A957 /* Frameworks */,
 				9CF28F491F7E371E0006A957 /* Resources */,
 			);
@@ -276,6 +288,20 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --config ../.swiftlint.yml\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		9C1B29191F7E693600B99850 /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n    swiftgen storyboards -t swift3 ./BetTest/Storyboards > ./BetTest/SwiftGen/Storyboards.swift\nelse\n    echo \"warning: SwiftGen not installed, download from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -283,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C1B291B1F7E6BC500B99850 /* Storyboards.swift in Sources */,
 				9CF28F511F7E371E0006A957 /* ViewController.swift in Sources */,
 				9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */,
 			);
