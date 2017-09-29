@@ -1,7 +1,7 @@
 # BetTest
 
 This project is a test asked by BetClic as a part of their interview process.  
-Basically, it simply displays a list of Deezer playlists for a given user, and lets you see their content. Details can be found [in the docs folder](./docs/subject.txt).  
+Basically, it simply displays a list of Deezer playlists for a given user, and lets you see their content. Details can be found [in the docs folder](./docs/requirements.txt).  
 
 # Getting started
 
@@ -24,7 +24,7 @@ As demanded, the project uses Swift 3 (and specifically Swift 3.1), using the la
 The `Team` is set to `None`, so you'll have to select yours if you want to build on device.
 
 ## Deployment infos
-Since the subject didn't specify the iOS deployment informations, nor devices, I took the liberty to configure it myself :
+Since the requirements didn't specify the iOS deployment informations, nor devices, I took the liberty to configure it myself :
   - Deployment target : iOS 10+ [(89% of devices)](https://developer.apple.com/support/app-store/)
   - Devices : Universal
   - Device orientation : Portrait, Landscape (left & right)
