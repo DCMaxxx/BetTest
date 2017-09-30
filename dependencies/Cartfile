@@ -1,2 +1,5 @@
 # Reactive Extensions
 github "ReactiveX/RxSwift" ~> 3.0
+
+# HTTP Requests
+github "Alamofire/Alamofire" ~> 4.5
