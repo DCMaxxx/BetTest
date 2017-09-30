@@ -3,3 +3,9 @@ github "ReactiveX/RxSwift" ~> 3.0
 
 # HTTP Requests
 github "Alamofire/Alamofire" ~> 4.5
+
+# JSON Parser
+github "SwiftyJSON/SwiftyJSON"
+
+# Type-safe cells identifiers
+github "AliSoftware/Reusable"

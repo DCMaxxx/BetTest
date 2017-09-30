@@ -1,0 +1,21 @@
+{
+  "iOS" : [
+    {
+      "hash" : "a4a22b7537554670f224b5a24f9e5a0e621bc02708a5e18ae96ba6a5704e282d",
+      "name" : "Reusable"
+    }
+  ],
+  "commitish" : "4.0.1",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "hash" : "c6f3c2619bdbda765caeb3c3ea94e53b0ed2a95d15a13490461b7f9eb9d0a409",
+      "name" : "Reusable"
+    }
+  ],
+  "Mac" : [
+
+  ]
+}
