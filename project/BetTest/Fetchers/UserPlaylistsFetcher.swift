@@ -23,6 +23,8 @@ protocol UserPlaylistFetchedType {
 
 protocol UserPlaylistsFetcherType {
 
+    var hasMore: Variable<Bool> { get }
+
     func fetch() -> Observable<[UserPlaylistFetchedType]>
 
 }
@@ -36,39 +38,47 @@ final class UserPlaylistsFetcher: UserPlaylistsFetcherType {
     private let userID: String
     private var nextPlaylistsURL: URL?
 
+    let hasMore = Variable(true)
+
     init(userID: String) {
         self.userID = userID
         self.nextPlaylistsURL = UserPlaylistsFetcher.baseFetcherURL(userID: userID)
     }
 
     func fetch() -> Observable<[UserPlaylistFetchedType]> {
-        return Observable.create { observer -> Disposable in
+        let subject = PublishSubject<[UserPlaylistFetchedType]>()
+        let observer = subject.asObserver()
 
-            guard let url = self.nextPlaylistsURL else {
-                observer.onCompleted()
-                return Disposables.create()
-            }
-
-            Alamofire.request(url).responseJSON { response in
-                if let error = response.error {
-                    observer.onError(error)
-                    return
-                }
-
-                guard
-                    let value = response.value,
-                    let array = JSON(value)["data"].array
-                    else {
-                        return
-                }
-
-                let playlists = array.flatMap(Playlist.init)
-                observer.onNext(playlists)
-                observer.onCompleted()
-            }
-
-            return Disposables.create()
+        guard let url = nextPlaylistsURL else {
+            subject.onCompleted()
+            return subject
         }
+
+        Alamofire.request(url).responseJSON { response in
+            if let error = response.error {
+                observer.onError(error)
+                return
+            }
+
+            guard
+                let json = response.value.flatMap(JSON.init),
+                let array = json["data"].array
+                else {
+                    return
+            }
+
+            if let url = json["next"].url {
+                self.nextPlaylistsURL = url
+            } else {
+                self.hasMore.value = false
+            }
+
+            let playlists = array.flatMap(Playlist.init)
+            observer.onNext(playlists)
+            observer.onCompleted()
+        }
+
+        return subject
     }
 
 }

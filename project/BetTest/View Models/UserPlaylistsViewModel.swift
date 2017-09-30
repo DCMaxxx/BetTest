@@ -22,6 +22,7 @@ protocol UserPlaylistViewModelType {
 protocol UserPlaylistListViewModelType {
 
     var playlists: Variable<[UserPlaylistViewModelType]> { get }
+    var hasMore: Variable<Bool> { get }
 
     func loadMore() -> Observable<Void>
 
@@ -33,6 +34,7 @@ final class UserPlaylistListViewModel: UserPlaylistListViewModelType {
     private let userPlaylistList: UserPlaylistListType
 
     let playlists = Variable<[UserPlaylistViewModelType]>([])
+    let hasMore = Variable(true)
 
     init(userPlaylistList: UserPlaylistListType) {
         self.userPlaylistList = userPlaylistList
@@ -40,6 +42,8 @@ final class UserPlaylistListViewModel: UserPlaylistListViewModelType {
         userPlaylistList.playlists.asObservable().map { list in
             return list.map(PlaylistViewModel.init)
         }.bind(to: self.playlists).disposed(by: self.disposeBag)
+
+        userPlaylistList.hasMore.asObservable().bind(to: self.hasMore).disposed(by: self.disposeBag)
     }
 
     func loadMore() -> Observable<Void> {

@@ -27,7 +27,8 @@ final class PlaylistListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bind()
+        bindCollectionView()
+        bindLoadMore()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,13 +37,42 @@ final class PlaylistListViewController: UIViewController {
         performInitialLoadIfNeeded()
     }
 
-    private func bind() {
+    private func bindCollectionView() {
         viewModel.playlists.asObservable().bind(to: collectionView.rx.items) { collectionView, item, viewModel in
             let indexPath = IndexPath(item: item, section: 0)
             let cell = collectionView.dequeueReusableCell(for: indexPath) as PlaylistCollectionViewCell
             cell.viewModel = viewModel
             return cell
-            }.disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
+    }
+
+    private func bindLoadMore() {
+        var shouldLoadMore = true
+
+        let disposable = collectionView.rx.willDisplayCell.asObservable().subscribe(onNext: { [unowned self] _, indexPath in
+            guard shouldLoadMore else {
+                return
+            }
+
+            let lastItem = self.collectionView.numberOfItems(inSection: indexPath.section) - 1
+            let isLastItem = indexPath.item == lastItem
+            if isLastItem {
+                shouldLoadMore = false
+                self.setNetworkIndicatorVisibility(visible: true)
+                self.viewModel.loadMore().subscribe(onCompleted: {
+                    shouldLoadMore = true
+                    self.setNetworkIndicatorVisibility(visible: false)
+                }).disposed(by: self.disposeBag)
+            }
+        })
+        disposable.disposed(by: disposeBag)
+
+        viewModel.hasMore.asObservable()
+            .filter { !$0 }
+            .subscribe(onNext: { _ in
+                disposable.dispose()
+            })
+            .disposed(by: disposeBag)
     }
 
     private func performInitialLoadIfNeeded() {
@@ -50,16 +80,14 @@ final class PlaylistListViewController: UIViewController {
             return
         }
 
-        viewModel.loadMore().subscribe(onNext: {
-            print("Loaded more")
-        }, onError: { error in
-            print("Loaded more error: \(error)")
-        }, onCompleted: {
-            print("Loaded more completed")
-        }, onDisposed: {
-            print("Loaded more disposed")
-        }).disposed(by: disposeBag)
+        self.setNetworkIndicatorVisibility(visible: true)
+        viewModel.loadMore().subscribe { [unowned self] _ in
+            self.setNetworkIndicatorVisibility(visible: false)
+        }.disposed(by: disposeBag)
+    }
 
+    private func setNetworkIndicatorVisibility(visible: Bool) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = visible
     }
 
 }

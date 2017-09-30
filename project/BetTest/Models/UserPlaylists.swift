@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol UserPlaylistType {
 
@@ -21,6 +22,7 @@ protocol UserPlaylistType {
 protocol UserPlaylistListType {
 
     var playlists: Variable<[UserPlaylistType]> { get }
+    var hasMore: Variable<Bool> { get }
 
     func loadMore() -> Observable<Void>
 
@@ -31,10 +33,12 @@ final class UserPlaylistList: UserPlaylistListType {
     private let disposeBag = DisposeBag()
     private let fetcher: UserPlaylistsFetcherType
 
-    var playlists = Variable<[UserPlaylistType]>([])
+    let playlists = Variable<[UserPlaylistType]>([])
+    let hasMore = Variable(true)
 
     init(fetcher: UserPlaylistsFetcherType) {
         self.fetcher = fetcher
+        fetcher.hasMore.asObservable().bind(to: self.hasMore).disposed(by: self.disposeBag)
     }
 
     func loadMore() -> Observable<Void> {
@@ -47,6 +51,7 @@ final class UserPlaylistList: UserPlaylistListType {
                 let playlists: [UserPlaylistType] = fetchedPlaylists.map(Playlist.init)
                 newPlaylists.append(contentsOf: playlists)
                 self.playlists.value = newPlaylists
+
                 observer.onCompleted()
 
             }, onError: { error in
