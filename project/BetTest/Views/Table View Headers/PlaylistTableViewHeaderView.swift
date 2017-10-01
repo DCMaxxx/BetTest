@@ -37,7 +37,6 @@ final class PlaylistTableViewHeaderView: UIView {
         self.disposeBag = disposeBag
 
         viewModel.author.asObservable()
-            .map { L10n.Playlistviewcontroller.author($0) }
             .bind(to: authorLabel.rx.text)
             .disposed(by: disposeBag)
 

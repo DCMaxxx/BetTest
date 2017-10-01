@@ -93,11 +93,12 @@ extension UserPlaylistListViewModel {
                 .disposed(by: self.disposeBag)
 
             playlist.author.asObservable()
+                .map { L10n.Playlist.author($0) }
                 .bind(to: self.author)
                 .disposed(by: self.disposeBag)
 
             playlist.duration.asObservable()
-                .map { return "\($0)" }
+                .map { return DurationFormatter.shared.string(from: $0) }
                 .bind(to: self.formattedDuration)
                 .disposed(by: self.disposeBag)
         }

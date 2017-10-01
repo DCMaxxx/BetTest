@@ -76,8 +76,8 @@ extension PlaylistTrackListViewModel {
             let duration = playlist.duration.asObservable()
             Observable.combineLatest(artist, duration)
                 .map { artist, duration in
-                    let durationString = "\(duration)"
-                    return "\(artist) - \(durationString)"
+                    let durationString = DurationFormatter.shared.string(from: duration)
+                    return L10n.Track.subtitle(artist, durationString)
                 }
                 .bind(to: self.subtitle)
                 .disposed(by: self.disposeBag)

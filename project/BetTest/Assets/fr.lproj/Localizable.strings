@@ -8,6 +8,8 @@
 
 "PlaylistListViewController.title" = "Playlists";
 
-"PlaylistViewController.author" = "Par %@";
+"Playlist.author" = "Par %@";
+
+"Track.subtitle" = "%@ - %@";
 
 "DurationFormatter.secondsFallback" = "%d secondes";

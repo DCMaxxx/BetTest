@@ -14,15 +14,22 @@ enum L10n {
     }
   }
 
+  enum Playlist {
+    /// By %@
+    static func author(_ p1: String) -> String {
+      return L10n.tr("Localizable", "Playlist.author", p1)
+    }
+  }
+
   enum Playlistlistviewcontroller {
     /// Playlists
     static let title = L10n.tr("Localizable", "PlaylistListViewController.title")
   }
 
-  enum Playlistviewcontroller {
-    /// By %@
-    static func author(_ p1: String) -> String {
-      return L10n.tr("Localizable", "PlaylistViewController.author", p1)
+  enum Track {
+    /// %@ - %@
+    static func subtitle(_ p1: String, _ p2: String) -> String {
+      return L10n.tr("Localizable", "Track.subtitle", p1, p2)
     }
   }
 }
