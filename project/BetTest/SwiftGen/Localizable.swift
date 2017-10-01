@@ -12,6 +12,8 @@ enum L10n {
     static func secondsFallback(_ p1: Int) -> String {
       return L10n.tr("Localizable", "DurationFormatter.secondsFallback", p1)
     }
+    /// --
+    static let zero = L10n.tr("Localizable", "DurationFormatter.zero")
   }
 
   enum Playlist {

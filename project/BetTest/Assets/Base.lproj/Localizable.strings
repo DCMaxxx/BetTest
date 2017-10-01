@@ -12,4 +12,5 @@
 
 "Track.subtitle" = "%@ - %@";
 
+"DurationFormatter.zero" = "--";
 "DurationFormatter.secondsFallback" = "%d seconds";

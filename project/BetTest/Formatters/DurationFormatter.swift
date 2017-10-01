@@ -25,10 +25,15 @@ final class DurationFormatter {
     }
 
     func string(from duration: TimeInterval) -> String {
+        guard duration > 0 else {
+            return L10n.Durationformatter.zero
+        }
+
         guard let formattedDuration = internalFormatter.string(from: duration) else {
             let seconds = Int(duration)
             return L10n.Durationformatter.secondsFallback(seconds)
         }
+
         return formattedDuration
     }
 
