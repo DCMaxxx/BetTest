@@ -7,6 +7,13 @@ import Foundation
 // swiftlint:disable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 enum L10n {
 
+  enum Durationformatter {
+    /// %d seconds
+    static func secondsFallback(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "DurationFormatter.secondsFallback", p1)
+    }
+  }
+
   enum Playlistlistviewcontroller {
     /// Playlists
     static let title = L10n.tr("Localizable", "PlaylistListViewController.title")

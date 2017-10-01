@@ -9,3 +9,5 @@
 "PlaylistListViewController.title" = "Playlists";
 
 "PlaylistViewController.author" = "By %@";
+
+"DurationFormatter.secondsFallback" = "%d seconds";

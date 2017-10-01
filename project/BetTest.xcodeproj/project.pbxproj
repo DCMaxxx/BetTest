@@ -35,6 +35,7 @@
 		9CF28F591F7E371E0006A957 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF28F571F7E371E0006A957 /* LaunchScreen.storyboard */; };
 		9CF28F7B1F7E42F90006A957 /* BetTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F7A1F7E42F90006A957 /* BetTestTests.swift */; };
 		9CFC76A01F80FAE200C968ED /* PlaylistTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC769F1F80FAE200C968ED /* PlaylistTableViewHeaderView.swift */; };
+		9CFC76A31F80FE6B00C968ED /* DurationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC76A21F80FE6B00C968ED /* DurationFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		9CF28F771F7E42C20006A957 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BetTestTests/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		9CF28F7A1F7E42F90006A957 /* BetTestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BetTestTests.swift; path = BetTestTests/Tests/BetTestTests.swift; sourceTree = SOURCE_ROOT; };
 		9CFC769F1F80FAE200C968ED /* PlaylistTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTableViewHeaderView.swift; path = "Views/Table View Headers/PlaylistTableViewHeaderView.swift"; sourceTree = "<group>"; };
+		9CFC76A21F80FE6B00C968ED /* DurationFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DurationFormatter.swift; path = Formatters/DurationFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,11 +224,12 @@
 		9CF28F4D1F7E371E0006A957 /* BetTest */ = {
 			isa = PBXGroup;
 			children = (
-				9CF28F6E1F7E3FFE0006A957 /* View Controllers */,
+				9CFC76A41F80FE6F00C968ED /* Formatters */,
 				9C99BEE61F7FCC0900F0F7C6 /* Fetchers */,
 				9C99BEE11F7FC42D00F0F7C6 /* Models */,
 				9C99BEEB1F7FDAD500F0F7C6 /* View Models */,
 				9CA639DA1F7FE89A001CD835 /* Views */,
+				9CF28F6E1F7E3FFE0006A957 /* View Controllers */,
 				9CF28F6F1F7E40410006A957 /* App Delegate */,
 				9CA639F21F80DD7E001CD835 /* Constants */,
 				9C1B29181F7E690500B99850 /* SwiftGen */,
@@ -320,6 +323,14 @@
 				9CFC769F1F80FAE200C968ED /* PlaylistTableViewHeaderView.swift */,
 			);
 			name = "Table View Headers";
+			sourceTree = "<group>";
+		};
+		9CFC76A41F80FE6F00C968ED /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				9CFC76A21F80FE6B00C968ED /* DurationFormatter.swift */,
+			);
+			name = Formatters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CA639F71F80E001001CD835 /* FixedColumnsLayout.swift in Sources */,
+				9CFC76A31F80FE6B00C968ED /* DurationFormatter.swift in Sources */,
 				9CA639DD1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift in Sources */,
 				9C99BEED1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift in Sources */,
 				9CA639D91F7FE820001CD835 /* PlaylistListViewController.swift in Sources */,
