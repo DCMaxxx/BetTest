@@ -25,29 +25,37 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qO3-Me-al8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7yK-Nw-IDd">
-                                    <size key="itemSize" width="107" height="163"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7yK-Nw-IDd" customClass="FixedColumnsSquareItemsLayout" customModule="BetTest" customModuleProvider="target">
+                                    <size key="itemSize" width="110" height="110"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="columnsCount">
+                                            <integer key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlaylistCollectionViewCell" id="Ndr-PC-2SW" customClass="PlaylistCollectionViewCell" customModule="BetTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="107" height="163"/>
+                                        <rect key="frame" x="20" y="20" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="107" height="163"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mPC-7a-Vad">
-                                                    <rect key="frame" x="0.0" y="0.0" width="107" height="106.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="mPC-7a-Vad">
+                                                    <rect key="frame" x="20" y="0.0" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mPC-7a-Vad" secondAttribute="height" id="5yc-M6-7Ay"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBR-eN-FXw">
-                                                    <rect key="frame" x="0.0" y="116.5" width="107" height="46.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBR-eN-FXw">
+                                                    <rect key="frame" x="0.0" y="80" width="110" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="xmm-91-NkZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -58,7 +66,7 @@
                                             <constraint firstItem="mPC-7a-Vad" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ndr-PC-2SW" secondAttribute="leading" id="Rt2-o8-AXW"/>
                                             <constraint firstItem="mPC-7a-Vad" firstAttribute="top" secondItem="Ndr-PC-2SW" secondAttribute="top" id="eSY-W6-mYD"/>
                                             <constraint firstItem="FBR-eN-FXw" firstAttribute="leading" secondItem="Ndr-PC-2SW" secondAttribute="leading" id="hdI-Hs-L7o"/>
-                                            <constraint firstItem="FBR-eN-FXw" firstAttribute="top" secondItem="mPC-7a-Vad" secondAttribute="bottom" constant="10" id="ndC-VJ-unn"/>
+                                            <constraint firstItem="FBR-eN-FXw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mPC-7a-Vad" secondAttribute="bottom" constant="10" id="ndC-VJ-unn"/>
                                             <constraint firstAttribute="bottom" secondItem="FBR-eN-FXw" secondAttribute="bottom" id="q0W-gh-WPv"/>
                                             <constraint firstAttribute="trailing" secondItem="FBR-eN-FXw" secondAttribute="trailing" id="vEi-6Z-77c"/>
                                         </constraints>
@@ -87,4 +95,7 @@
             <point key="canvasLocation" x="-2436" y="-432.23388305847078"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cover-placeholder" width="166" height="166"/>
+    </resources>
 </document>

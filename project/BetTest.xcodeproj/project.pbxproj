@@ -23,6 +23,7 @@
 		9CA639DF1F7FE9AD001CD835 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA639DE1F7FE9AD001CD835 /* Reusable.framework */; };
 		9CA639F11F80D3AA001CD835 /* URLImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F01F80D3AA001CD835 /* URLImageFetcher.swift */; };
 		9CA639F41F80DD97001CD835 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F31F80DD97001CD835 /* Constants.swift */; };
+		9CA639F71F80E001001CD835 /* FixedColumnsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F61F80E001001CD835 /* FixedColumnsLayout.swift */; };
 		9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F4E1F7E371E0006A957 /* AppDelegate.swift */; };
 		9CF28F541F7E371E0006A957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF28F521F7E371E0006A957 /* Main.storyboard */; };
 		9CF28F561F7E371E0006A957 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF28F551F7E371E0006A957 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		9CA639DE1F7FE9AD001CD835 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = ../dependencies/Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
 		9CA639F01F80D3AA001CD835 /* URLImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLImageFetcher.swift; path = Fetchers/URLImageFetcher.swift; sourceTree = "<group>"; };
 		9CA639F31F80DD97001CD835 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Constants/Constants.swift; sourceTree = "<group>"; };
+		9CA639F61F80E001001CD835 /* FixedColumnsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedColumnsLayout.swift; path = "Views/Collection View Layouts/FixedColumnsLayout.swift"; sourceTree = "<group>"; };
 		9CF28F4B1F7E371E0006A957 /* BetTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF28F4E1F7E371E0006A957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CF28F531F7E371E0006A957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		9CA639DA1F7FE89A001CD835 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9CA639F51F80DFB7001CD835 /* Collection View Layouts */,
 				9CA639DB1F7FE8A4001CD835 /* Cells */,
 			);
 			name = Views;
@@ -162,6 +165,14 @@
 				9CA639F31F80DD97001CD835 /* Constants.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		9CA639F51F80DFB7001CD835 /* Collection View Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				9CA639F61F80E001001CD835 /* FixedColumnsLayout.swift */,
+			);
+			name = "Collection View Layouts";
 			sourceTree = "<group>";
 		};
 		9CF28F421F7E371E0006A957 = {
@@ -444,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CA639F71F80E001001CD835 /* FixedColumnsLayout.swift in Sources */,
 				9CA639DD1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift in Sources */,
 				9C99BEED1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift in Sources */,
 				9CA639D91F7FE820001CD835 /* PlaylistListViewController.swift in Sources */,
