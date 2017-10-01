@@ -1,5 +1,5 @@
 //
-//  UserPlaylists.swift
+//  UserPlaylistList.swift
 //  BetTest
 //
 //  Created by Maxime de Chalendar on 30/09/2017.
