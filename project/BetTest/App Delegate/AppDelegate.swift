@@ -18,18 +18,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    private func setRootViewController() {
-        let userID = "5" // Daniel Marhely's
+}
+
+// MARK: - Root View Controller handling
+extension AppDelegate {
+
+    fileprivate func setRootViewController() {
+        let userID = Constants.Users.deezerFounderID
+        let rootViewController = buildRootViewController(forUserID: userID)
+        setKeyWindow(withRootController: rootViewController)
+    }
+
+    private func buildRootViewController(forUserID userID: String) -> UIViewController {
         let fetcher = UserPlaylistsFetcher(userID: userID)
         let playlistList = UserPlaylistList(fetcher: fetcher)
         let viewModel =  UserPlaylistListViewModel(userPlaylistList: playlistList)
         let playlistListViewController = PlaylistListViewController.instantiate(viewModel: viewModel)
 
-        let navigationController = UINavigationController(rootViewController: playlistListViewController)
+        return UINavigationController(rootViewController: playlistListViewController)
+    }
 
+    private func setKeyWindow(withRootController rootViewController: UIViewController) {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        window.rootViewController = navigationController
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
 
