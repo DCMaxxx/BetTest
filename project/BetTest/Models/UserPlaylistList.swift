@@ -42,29 +42,26 @@ final class UserPlaylistList: UserPlaylistListType {
     }
 
     func loadMore() -> Observable<Void> {
-        return Observable.create { observer -> Disposable in
-            let compositeDisposable = CompositeDisposable()
-            compositeDisposable.disposed(by: self.disposeBag)
+        let subject = PublishSubject<Void>()
+        let observer = subject.asObserver()
 
-            let disposable = self.fetcher.fetch().subscribe(onNext: { [unowned self] fetchedPlaylists in
-                var newPlaylists = self.playlists.value
-                let playlists: [UserPlaylistType] = fetchedPlaylists.map(Playlist.init)
-                newPlaylists.append(contentsOf: playlists)
-                self.playlists.value = newPlaylists
+        self.fetcher.fetch().subscribe(onNext: { [unowned self] fetchedPlaylists in
+            var newPlaylists = self.playlists.value
+            let playlists: [UserPlaylistType] = fetchedPlaylists.map(Playlist.init)
+            newPlaylists.append(contentsOf: playlists)
+            self.playlists.value = newPlaylists
 
-                observer.onCompleted()
+            observer.onCompleted()
 
-            }, onError: { error in
-                observer.onError(error)
+        }, onError: { error in
+            observer.onError(error)
 
-            }, onCompleted: {
-                observer.onCompleted()
-            })
+        }, onCompleted: {
+            observer.onCompleted()
 
-            _ = compositeDisposable.insert(disposable)
+        }).disposed(by: disposeBag)
 
-            return compositeDisposable
-        }
+        return subject
     }
 
 }
