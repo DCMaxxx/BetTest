@@ -36,6 +36,10 @@ protocol UserPlaylistsFetcherType {
 /// A concrete implementation of UserPlaylistsFetcherType, that fetches playlists from Deezer's HTTP API
 final class UserPlaylistsFetcher: UserPlaylistsFetcherType {
 
+    enum FetchError: Error {
+        case invalidJSON
+    }
+
     private static func baseFetcherURL(userID: String) -> URL? {
         return URL(string: "https://api.deezer.com/user/\(userID)/playlists")
     }
@@ -69,6 +73,7 @@ final class UserPlaylistsFetcher: UserPlaylistsFetcherType {
                 let json = response.value.flatMap(JSON.init),
                 let array = json["data"].array
                 else {
+                    observer.onError(FetchError.invalidJSON)
                     return
             }
 
