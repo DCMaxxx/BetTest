@@ -38,7 +38,9 @@ final class UserPlaylistList: UserPlaylistListType {
 
     init(fetcher: UserPlaylistsFetcherType) {
         self.fetcher = fetcher
-        fetcher.hasMore.asObservable().bind(to: self.hasMore).disposed(by: self.disposeBag)
+        fetcher.hasMore.asObservable()
+            .bind(to: self.hasMore)
+            .disposed(by: self.disposeBag)
     }
 
     func loadMore() -> Observable<Void> {

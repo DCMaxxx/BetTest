@@ -19,15 +19,15 @@ final class PlaylistListViewController: UIViewController {
         return controller
     }
 
-    private var viewModel: UserPlaylistListViewModelType!
-    private let disposeBag = DisposeBag()
+    fileprivate var viewModel: UserPlaylistListViewModelType!
+    fileprivate let disposeBag = DisposeBag()
 
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bindCollectionView()
+        bindCollectionViewItems()
         bindLoadMore()
     }
 
@@ -37,56 +37,72 @@ final class PlaylistListViewController: UIViewController {
         performInitialLoadIfNeeded()
     }
 
-    private func bindCollectionView() {
-        viewModel.playlists.asObservable().bind(to: collectionView.rx.items) { collectionView, item, viewModel in
-            let indexPath = IndexPath(item: item, section: 0)
-            let cell = collectionView.dequeueReusableCell(for: indexPath) as PlaylistCollectionViewCell
-            cell.viewModel = viewModel
-            return cell
-        }.disposed(by: disposeBag)
-    }
+}
 
-    private func bindLoadMore() {
-        var shouldLoadMore = true
+// MARK: - Data source
+extension PlaylistListViewController {
 
-        let disposable = collectionView.rx.willDisplayCell.asObservable().subscribe(onNext: { [unowned self] _, indexPath in
-            guard shouldLoadMore else {
-                return
+    fileprivate func bindCollectionViewItems() {
+        viewModel.playlists.asObservable()
+            .bind(to: collectionView.rx.items) { collectionView, item, viewModel in
+                let indexPath = IndexPath(item: item, section: 0)
+                let cell = collectionView.dequeueReusableCell(for: indexPath) as PlaylistCollectionViewCell
+                cell.viewModel = viewModel
+                return cell
             }
-
-            let lastItem = self.collectionView.numberOfItems(inSection: indexPath.section) - 1
-            let isLastItem = indexPath.item == lastItem
-            if isLastItem {
-                shouldLoadMore = false
-                self.setNetworkIndicatorVisibility(visible: true)
-                self.viewModel.loadMore().subscribe(onCompleted: {
-                    shouldLoadMore = true
-                    self.setNetworkIndicatorVisibility(visible: false)
-                }).disposed(by: self.disposeBag)
-            }
-        })
-        disposable.disposed(by: disposeBag)
-
-        viewModel.hasMore.asObservable()
-            .filter { !$0 }
-            .subscribe(onNext: { _ in
-                disposable.dispose()
-            })
             .disposed(by: disposeBag)
     }
 
-    private func performInitialLoadIfNeeded() {
+}
+
+// MARK: - Load data
+extension PlaylistListViewController {
+
+    fileprivate func performInitialLoadIfNeeded() {
         guard viewModel.playlists.value.isEmpty else {
             return
         }
 
         self.setNetworkIndicatorVisibility(visible: true)
-        viewModel.loadMore().subscribe { [unowned self] _ in
-            self.setNetworkIndicatorVisibility(visible: false)
-        }.disposed(by: disposeBag)
+        viewModel.loadMore()
+            .subscribe { [unowned self] _ in
+                self.setNetworkIndicatorVisibility(visible: false)
+            }
+            .disposed(by: disposeBag)
     }
 
-    private func setNetworkIndicatorVisibility(visible: Bool) {
+    fileprivate func bindLoadMore() {
+        var isLoadingMore = false
+
+        let loadMoreDisposable = collectionView.rx.willDisplayCell.asObservable()
+            .subscribe(onNext: { [unowned self] _, indexPath in
+                guard !isLoadingMore else {
+                    return
+                }
+
+                let lastItem = self.collectionView.numberOfItems(inSection: indexPath.section) - 1
+                let isLastItem = indexPath.item == lastItem
+                if isLastItem {
+                    isLoadingMore = true
+                    self.setNetworkIndicatorVisibility(visible: true)
+                    self.viewModel.loadMore().subscribe(onCompleted: {
+                        isLoadingMore = false
+                        self.setNetworkIndicatorVisibility(visible: false)
+                    }).disposed(by: self.disposeBag)
+                }
+            })
+        loadMoreDisposable.disposed(by: disposeBag)
+
+        viewModel.hasMore.asObservable()
+            .filter { !$0 }
+            .take(1)
+            .subscribe(onNext: { _ in
+                loadMoreDisposable.dispose()
+            })
+            .disposed(by: disposeBag)
+    }
+
+    fileprivate func setNetworkIndicatorVisibility(visible: Bool) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = visible
     }
 

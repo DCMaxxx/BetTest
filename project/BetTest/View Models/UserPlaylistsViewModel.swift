@@ -39,11 +39,14 @@ final class UserPlaylistListViewModel: UserPlaylistListViewModelType {
     init(userPlaylistList: UserPlaylistListType) {
         self.userPlaylistList = userPlaylistList
 
-        userPlaylistList.playlists.asObservable().map { list in
-            return list.map(PlaylistViewModel.init)
-        }.bind(to: self.playlists).disposed(by: self.disposeBag)
+        userPlaylistList.playlists.asObservable()
+            .map { $0.map(PlaylistViewModel.init) }
+            .bind(to: self.playlists)
+            .disposed(by: self.disposeBag)
 
-        userPlaylistList.hasMore.asObservable().bind(to: self.hasMore).disposed(by: self.disposeBag)
+        userPlaylistList.hasMore.asObservable()
+            .bind(to: self.hasMore)
+            .disposed(by: self.disposeBag)
     }
 
     func loadMore() -> Observable<Void> {
@@ -64,12 +67,22 @@ extension UserPlaylistListViewModel {
         let formattedDuration = Variable<String>("")
 
         init(playlist: UserPlaylistType) {
-            playlist.title.asObservable().bind(to: self.title).disposed(by: self.disposeBag)
-            playlist.picture.asObservable().bind(to: self.picture).disposed(by: self.disposeBag)
-            playlist.author.asObservable().bind(to: self.author).disposed(by: self.disposeBag)
-            playlist.duration.asObservable().map { duration in
-                return "\(duration)"
-            }.bind(to: self.formattedDuration).disposed(by: self.disposeBag)
+            playlist.title.asObservable()
+                .bind(to: self.title)
+                .disposed(by: self.disposeBag)
+
+            playlist.picture.asObservable()
+                .bind(to: self.picture)
+                .disposed(by: self.disposeBag)
+
+            playlist.author.asObservable()
+                .bind(to: self.author)
+                .disposed(by: self.disposeBag)
+
+            playlist.duration.asObservable()
+                .map { return "\($0)" }
+                .bind(to: self.formattedDuration)
+                .disposed(by: self.disposeBag)
         }
 
     }
