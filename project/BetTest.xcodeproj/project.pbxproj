@@ -486,7 +486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "carthage copy-frameworks";
+			shellScript = "if which carthage >/dev/null; then\n    carthage copy-frameworks\nelse\n    echo \"warning: Carthage not installed, you won't be able to submit to the store. Download from https://github.com/Carthage/Carthage\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
