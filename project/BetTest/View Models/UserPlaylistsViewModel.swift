@@ -19,6 +19,8 @@ protocol UserPlaylistViewModelType {
     var author: Variable<String> { get }
     var formattedDuration: Variable<String> { get }
 
+    var trackListViewModel: PlaylistTrackListViewModelType? { get }
+
 }
 
 /// A protocol representing a view model for a list of playlists, that can grow over time
@@ -67,6 +69,7 @@ extension UserPlaylistListViewModel {
     /// that formats a playlist's data to display in on screen
     final class PlaylistViewModel: UserPlaylistViewModelType {
 
+        private let playlist: UserPlaylistType
         private let disposeBag = DisposeBag()
 
         let title = Variable<String>("")
@@ -74,7 +77,13 @@ extension UserPlaylistListViewModel {
         let author = Variable<String>("")
         let formattedDuration = Variable<String>("")
 
+        var trackListViewModel: PlaylistTrackListViewModelType? {
+            return playlist.trackList.flatMap(PlaylistTrackListViewModel.init)
+        }
+
         init(playlist: UserPlaylistType) {
+            self.playlist = playlist
+
             playlist.title.asObservable()
                 .bind(to: self.title)
                 .disposed(by: self.disposeBag)

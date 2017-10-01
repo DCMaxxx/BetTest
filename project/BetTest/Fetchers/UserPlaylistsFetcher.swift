@@ -19,7 +19,7 @@ protocol UserPlaylistFetchedType {
     var picture: URL? { get }
     var author: String { get }
     var duration: TimeInterval { get }
-    var tracks: URL? { get }
+    var trackListFetcher: PlaylistTrackListFetcherType? { get }
 
 }
 
@@ -98,11 +98,16 @@ extension UserPlaylistsFetcher {
     /// A concrete implementation or UserPlaylistFetchedType, that parses a Deezer playlist, represented as a JSON
     final class Playlist: UserPlaylistFetchedType {
 
+        private let tracks: URL?
+
         let title: String
         let picture: URL?
         let author: String
         let duration: TimeInterval
-        let tracks: URL?
+
+        var trackListFetcher: PlaylistTrackListFetcherType? {
+            return tracks.flatMap(PlaylistTrackListFetcher.init)
+        }
 
         fileprivate init?(json: JSON) {
             guard

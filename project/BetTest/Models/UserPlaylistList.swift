@@ -18,6 +18,7 @@ protocol UserPlaylistType {
     var picture: Variable<URL?> { get }
     var author: Variable<String> { get }
     var duration: Variable<TimeInterval> { get }
+    var trackList: PlaylistTrackListType? { get }
 
 }
 
@@ -67,7 +68,8 @@ final class UserPlaylistList: UserPlaylistListType {
         }, onCompleted: {
             observer.onCompleted()
 
-        }).disposed(by: disposeBag)
+        })
+            .disposed(by: disposeBag)
 
         return subject
     }
@@ -80,12 +82,18 @@ extension UserPlaylistList {
     /// a fetched playlist into a observable model
     final class Playlist: UserPlaylistType {
 
+        private let fetchedPlaylist: UserPlaylistFetchedType
         let title: Variable<String>
         let picture: Variable<URL?>
         let author: Variable<String>
         let duration: Variable<TimeInterval>
 
+        var trackList: PlaylistTrackListType? {
+            return fetchedPlaylist.trackListFetcher.flatMap(PlaylistTrackList.init)
+        }
+
         init(fetchedPlaylist: UserPlaylistFetchedType) {
+            self.fetchedPlaylist = fetchedPlaylist
             self.title = Variable(fetchedPlaylist.title)
             self.picture = Variable(fetchedPlaylist.picture)
             self.author = Variable(fetchedPlaylist.author)
