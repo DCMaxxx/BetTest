@@ -21,40 +21,40 @@ class BetTests: XCTestCase {
     }
 
     func testSecondsDuration() {
-        XCTAssertEqual(formatter.string(from: 1), "1s")
-        XCTAssertEqual(formatter.string(from: 40), "40s")
-        XCTAssertEqual(formatter.string(from: 59), "59s")
+        XCTAssertEqual(formatter.string(from: 1), "00:00:01")
+        XCTAssertEqual(formatter.string(from: 40), "00:00:40")
+        XCTAssertEqual(formatter.string(from: 59), "00:00:59")
     }
 
     func testMinutesDuration() {
-        XCTAssertEqual(formatter.string(from: 60), "1m")
-        XCTAssertEqual(formatter.string(from: 1320), "22m")
-        XCTAssertEqual(formatter.string(from: 3540), "59m")
+        XCTAssertEqual(formatter.string(from: 60), "00:01:00")
+        XCTAssertEqual(formatter.string(from: 1320), "00:22:00")
+        XCTAssertEqual(formatter.string(from: 3540), "00:59:00")
     }
 
     func testHoursDuration() {
-        XCTAssertEqual(formatter.string(from: 3600), "1h")
-        XCTAssertEqual(formatter.string(from: 28800), "8h")
-        XCTAssertEqual(formatter.string(from: 86400), "24h")
-        XCTAssertEqual(formatter.string(from: 172800), "48h")
+        XCTAssertEqual(formatter.string(from: 3600), "1:00:00")
+        XCTAssertEqual(formatter.string(from: 28800), "8:00:00")
+        XCTAssertEqual(formatter.string(from: 86400), "24:00:00")
+        XCTAssertEqual(formatter.string(from: 172800), "48:00:00")
     }
 
     func testMinutesSecondsDuration() {
-        XCTAssertEqual(formatter.string(from: 61), "1m 1s")
-        XCTAssertEqual(formatter.string(from: 1234), "20m 34s")
-        XCTAssertEqual(formatter.string(from: 3599), "59m 59s")
+        XCTAssertEqual(formatter.string(from: 61), "00:01:01")
+        XCTAssertEqual(formatter.string(from: 1234), "00:20:34")
+        XCTAssertEqual(formatter.string(from: 3599), "00:59:59")
     }
 
     func testHoursMinutesDuration() {
-        XCTAssertEqual(formatter.string(from: 3660), "1h 1m")
-        XCTAssertEqual(formatter.string(from: 4920), "1h 22m")
-        XCTAssertEqual(formatter.string(from: 7140), "1h 59m")
+        XCTAssertEqual(formatter.string(from: 3660), "1:01:00")
+        XCTAssertEqual(formatter.string(from: 4920), "1:22:00")
+        XCTAssertEqual(formatter.string(from: 7140), "1:59:00")
     }
 
     func testHoursMinutesSecondsDuration() {
-        XCTAssertEqual(formatter.string(from: 3661), "1h 1m 1s")
-        XCTAssertEqual(formatter.string(from: 4025), "1h 7m 5s")
-        XCTAssertEqual(formatter.string(from: 7199), "1h 59m 59s")
+        XCTAssertEqual(formatter.string(from: 3661), "1:01:01")
+        XCTAssertEqual(formatter.string(from: 4025), "1:07:05")
+        XCTAssertEqual(formatter.string(from: 7199), "1:59:59")
     }
 
 }
