@@ -40,26 +40,19 @@ final class PlaylistCollectionViewCell: UICollectionViewCell {
         let disposeBag = DisposeBag()
         self.disposeBag = disposeBag
 
-        viewModel.title.asObservable().bind(to: titleLabel.rx.text).disposed(by: disposeBag)
+        viewModel.title.asObservable()
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
 
-        viewModel.picture.asObservable().flatMap { url -> Observable<UIImage?> in
-            guard let url = url else {
-                return Observable.just(nil)
-            }
-
-            return Observable.create { observer in
-                let request = Alamofire.request(url)
-                request.responseData { response in
-                    let image = response.value.flatMap(UIImage.init)
-                    observer.onNext(image)
-                    observer.onCompleted()
+        viewModel.picture.asObservable()
+            .flatMap { url -> Observable<UIImage?> in
+                guard let url = url else {
+                    return Observable.just(nil)
                 }
-
-                return Disposables.create {
-                    request.cancel()
-                }
+                return url.image()
             }
-        }.bind(to: coverImageView.rx.image).disposed(by: disposeBag)
+            .bind(to: coverImageView.rx.image)
+            .disposed(by: disposeBag)
     }
 
 }
