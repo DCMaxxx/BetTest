@@ -28,6 +28,7 @@ final class PlaylistListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureTitle()
         bindCollectionViewItems()
         bindLoadMore()
     }
@@ -36,6 +37,15 @@ final class PlaylistListViewController: UIViewController {
         super.viewWillAppear(animated)
 
         performInitialLoadIfNeeded()
+    }
+
+}
+
+// MARK: - Static interface
+extension PlaylistListViewController {
+
+    fileprivate func configureTitle() {
+        title = L10n.Playlistlistviewcontroller.title
     }
 
 }
