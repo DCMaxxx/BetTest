@@ -10,7 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-/// A view controller responsible for displaying a single UserPlaylistViewModelType and its PlaylistTrackListViewModelType
+/// A view controller responsible for displaying a single UserPlaylistViewModelType,
+/// its PlaylistTrackListViewModelType, and to load more tracks on scroll
 final class PlaylistViewController: UIViewController {
 
     static func instantiate(viewModel: UserPlaylistViewModelType) -> PlaylistViewController {
