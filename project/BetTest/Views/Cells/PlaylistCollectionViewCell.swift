@@ -12,6 +12,7 @@ import RxCocoa
 import Alamofire
 import Reusable
 
+/// A cell responsible for displaying a UserPlaylistViewModelType
 final class PlaylistCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var coverImageView: UIImageView!

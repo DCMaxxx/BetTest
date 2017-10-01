@@ -11,6 +11,8 @@ import RxSwift
 import Alamofire
 import SwiftyJSON
 
+// MARK: - Protocols
+/// A protocol representing a raw playlist, given by a UserPlaylistsFetcherType
 protocol UserPlaylistFetchedType {
 
     var title: String { get }
@@ -21,6 +23,7 @@ protocol UserPlaylistFetchedType {
 
 }
 
+/// A protocol representing an object that can fetch playlists
 protocol UserPlaylistsFetcherType {
 
     var hasMore: Variable<Bool> { get }
@@ -29,6 +32,8 @@ protocol UserPlaylistsFetcherType {
 
 }
 
+// MARK: - Implementation
+/// A concrete implementation of UserPlaylistsFetcherType, that fetches playlists from Deezer's HTTP API
 final class UserPlaylistsFetcher: UserPlaylistsFetcherType {
 
     private static func baseFetcherURL(userID: String) -> URL? {
@@ -85,6 +90,7 @@ final class UserPlaylistsFetcher: UserPlaylistsFetcherType {
 
 extension UserPlaylistsFetcher {
 
+    /// A concrete implementation or UserPlaylistFetchedType, that parses a Deezer playlist, represented as a JSON
     final class Playlist: UserPlaylistFetchedType {
 
         let title: String

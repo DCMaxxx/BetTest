@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import Reusable
 
+/// A view controller responsible for displaying a UserPlaylistListViewModelType, and load more playlists on scroll
 final class PlaylistListViewController: UIViewController {
 
     static func instantiate(viewModel: UserPlaylistListViewModelType) -> PlaylistListViewController {

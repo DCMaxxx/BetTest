@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// MARK: - Protocols
+/// A protocol representing an observable playlist
 protocol UserPlaylistType {
 
     var title: Variable<String> { get }
@@ -19,6 +21,7 @@ protocol UserPlaylistType {
 
 }
 
+/// A protocol representing an observable list of playlist, that can grow over time
 protocol UserPlaylistListType {
 
     var playlists: Variable<[UserPlaylistType]> { get }
@@ -28,6 +31,9 @@ protocol UserPlaylistListType {
 
 }
 
+// MARK: - Implementation
+/// A concrete implementation of UserPlaylistListType,
+/// that stores a list of UserPlaylistType which can be observed
 final class UserPlaylistList: UserPlaylistListType {
 
     private let disposeBag = DisposeBag()
@@ -70,6 +76,8 @@ final class UserPlaylistList: UserPlaylistListType {
 
 extension UserPlaylistList {
 
+    /// A concrete implementation of UserPlaylistType, that turns
+    /// a fetched playlist into a observable model
     final class Playlist: UserPlaylistType {
 
         let title: Variable<String>

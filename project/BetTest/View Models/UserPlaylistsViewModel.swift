@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// MARK: - Protocols
+/// A protocol representing a view model for a playlist
 protocol UserPlaylistViewModelType {
 
     var title: Variable<String> { get }
@@ -19,6 +21,7 @@ protocol UserPlaylistViewModelType {
 
 }
 
+/// A protocol representing a view model for a list of playlists, that can grow over time
 protocol UserPlaylistListViewModelType {
 
     var playlists: Variable<[UserPlaylistViewModelType]> { get }
@@ -28,6 +31,9 @@ protocol UserPlaylistListViewModelType {
 
 }
 
+// MARK: - Implementation
+/// A concrete implementation of UserPlaylistListViewModelType,
+/// that stores a list of UserPlaylistViewModelType which can be observed
 final class UserPlaylistListViewModel: UserPlaylistListViewModelType {
 
     private let disposeBag = DisposeBag()
@@ -57,6 +63,8 @@ final class UserPlaylistListViewModel: UserPlaylistListViewModelType {
 
 extension UserPlaylistListViewModel {
 
+    /// A concrete implementation of UserPlaylistViewModelType,
+    /// that formats a playlist's data to display in on screen
     final class PlaylistViewModel: UserPlaylistViewModelType {
 
         private let disposeBag = DisposeBag()
