@@ -30,9 +30,9 @@ extension AppDelegate {
     }
 
     private func buildRootViewController(forUserID userID: String) -> UIViewController {
-        let fetcher = UserPlaylistsFetcher(userID: userID)
-        let playlistList = UserPlaylistList(fetcher: fetcher)
-        let viewModel =  UserPlaylistListViewModel(userPlaylistList: playlistList)
+        let fetcher = PlaylistsFetcher(userID: userID)
+        let playlistList = PlaylistList(fetcher: fetcher)
+        let viewModel =  PlaylistListViewModel(playlistList: playlistList)
         let playlistListViewController = PlaylistListViewController.instantiate(viewModel: viewModel)
 
         return UINavigationController(rootViewController: playlistListViewController)

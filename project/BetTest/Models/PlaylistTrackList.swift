@@ -36,12 +36,12 @@ protocol PlaylistTrackListType {
 final class PlaylistTrackList: PlaylistTrackListType {
 
     private let disposeBag = DisposeBag()
-    private let fetcher: PlaylistTrackListFetcherType
+    private let fetcher: PlaylistTracksFetcherType
 
     let tracks = Variable<[PlaylistTrackType]>([])
     let hasMore = Variable(true)
 
-    init(fetcher: PlaylistTrackListFetcherType) {
+    init(fetcher: PlaylistTracksFetcherType) {
         self.fetcher = fetcher
         fetcher.hasMore.asObservable().bind(to: self.hasMore).disposed(by: disposeBag)
     }

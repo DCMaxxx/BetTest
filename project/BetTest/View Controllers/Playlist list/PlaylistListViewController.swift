@@ -11,16 +11,16 @@ import RxSwift
 import RxCocoa
 import Reusable
 
-/// A view controller responsible for displaying a UserPlaylistListViewModelType, and load more playlists on scroll
+/// A view controller responsible for displaying a PlaylistListViewModelType, and load more playlists on scroll
 final class PlaylistListViewController: UIViewController {
 
-    static func instantiate(viewModel: UserPlaylistListViewModelType) -> PlaylistListViewController {
+    static func instantiate(viewModel: PlaylistListViewModelType) -> PlaylistListViewController {
         let controller = StoryboardScene.Main.playlistListViewController.instantiate()
         controller.viewModel = viewModel
         return controller
     }
 
-    fileprivate var viewModel: UserPlaylistListViewModelType!
+    fileprivate var viewModel: PlaylistListViewModelType!
     fileprivate let disposeBag = DisposeBag()
 
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
@@ -133,7 +133,7 @@ extension PlaylistListViewController {
             .disposed(by: disposeBag)
     }
 
-    private func getViewModel(at indexPath: IndexPath) -> UserPlaylistViewModelType {
+    private func getViewModel(at indexPath: IndexPath) -> PlaylistViewModelType {
         return viewModel.playlists.value[indexPath.row]
     }
 

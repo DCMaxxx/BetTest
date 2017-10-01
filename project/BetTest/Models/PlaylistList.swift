@@ -1,5 +1,5 @@
 //
-//  UserPlaylistList.swift
+//  PlaylistList.swift
 //  BetTest
 //
 //  Created by Maxime de Chalendar on 30/09/2017.
@@ -12,7 +12,7 @@ import RxCocoa
 
 // MARK: - Protocols
 /// A protocol representing an observable playlist
-protocol UserPlaylistType {
+protocol PlaylistType {
 
     var title: Variable<String> { get }
     var picture: Variable<URL?> { get }
@@ -23,9 +23,9 @@ protocol UserPlaylistType {
 }
 
 /// A protocol representing an observable list of playlist, that can grow over time
-protocol UserPlaylistListType {
+protocol PlaylistListType {
 
-    var playlists: Variable<[UserPlaylistType]> { get }
+    var playlists: Variable<[PlaylistType]> { get }
     var hasMore: Variable<Bool> { get }
 
     func loadMore() -> Observable<Void>
@@ -33,17 +33,17 @@ protocol UserPlaylistListType {
 }
 
 // MARK: - Implementation
-/// A concrete implementation of UserPlaylistListType,
-/// that stores a list of UserPlaylistType which can be observed
-final class UserPlaylistList: UserPlaylistListType {
+/// A concrete implementation of PlaylistListType,
+/// that stores a list of PlaylistType which can be observed
+final class PlaylistList: PlaylistListType {
 
     private let disposeBag = DisposeBag()
-    private let fetcher: UserPlaylistsFetcherType
+    private let fetcher: PlaylistsFetcherType
 
-    let playlists = Variable<[UserPlaylistType]>([])
+    let playlists = Variable<[PlaylistType]>([])
     let hasMore = Variable(true)
 
-    init(fetcher: UserPlaylistsFetcherType) {
+    init(fetcher: PlaylistsFetcherType) {
         self.fetcher = fetcher
         fetcher.hasMore.asObservable()
             .bind(to: self.hasMore)
@@ -56,7 +56,7 @@ final class UserPlaylistList: UserPlaylistListType {
 
         self.fetcher.fetch().subscribe(onNext: { [unowned self] fetchedPlaylists in
             var newPlaylists = self.playlists.value
-            let playlists: [UserPlaylistType] = fetchedPlaylists.map(Playlist.init)
+            let playlists: [PlaylistType] = fetchedPlaylists.map(Playlist.init)
             newPlaylists.append(contentsOf: playlists)
             self.playlists.value = newPlaylists
 
@@ -76,13 +76,13 @@ final class UserPlaylistList: UserPlaylistListType {
 
 }
 
-extension UserPlaylistList {
+extension PlaylistList {
 
-    /// A concrete implementation of UserPlaylistType, that turns
+    /// A concrete implementation of PlaylistType, that turns
     /// a fetched playlist into a observable model
-    final class Playlist: UserPlaylistType {
+    final class Playlist: PlaylistType {
 
-        private let fetchedPlaylist: UserPlaylistFetchedType
+        private let fetchedPlaylist: PlaylistFetchedType
         let title: Variable<String>
         let picture: Variable<URL?>
         let author: Variable<String>
@@ -92,7 +92,7 @@ extension UserPlaylistList {
             return fetchedPlaylist.trackListFetcher.flatMap(PlaylistTrackList.init)
         }
 
-        init(fetchedPlaylist: UserPlaylistFetchedType) {
+        init(fetchedPlaylist: PlaylistFetchedType) {
             self.fetchedPlaylist = fetchedPlaylist
             self.title = Variable(fetchedPlaylist.title)
             self.picture = Variable(fetchedPlaylist.picture)

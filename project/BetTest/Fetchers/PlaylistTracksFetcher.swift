@@ -1,5 +1,5 @@
 //
-//  PlaylistTrackListFetcher.swift
+//  PlaylistTracksFetcher.swift
 //  BetTest
 //
 //  Created by Maxime de Chalendar on 30/09/2017.
@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 
 // MARK: - Protocols
-/// A protocol representing a raw track, given by a PlaylistTrackListFetcherType
+/// A protocol representing a raw track, given by a PlaylistTracksFetcherType
 protocol PlaylistTrackFetchedType {
 
     var title: String { get }
@@ -22,7 +22,7 @@ protocol PlaylistTrackFetchedType {
 }
 
 /// A protocol representing an object that can fetch tracks
-protocol PlaylistTrackListFetcherType {
+protocol PlaylistTracksFetcherType {
 
     var hasMore: Variable<Bool> { get }
 
@@ -31,8 +31,8 @@ protocol PlaylistTrackListFetcherType {
 }
 
 // MARK: - Implementation
-/// A concrete implementation of PlaylistTrackListFetcherType, that fetches tracks from Deezer's HTTP API
-final class PlaylistTrackListFetcher: PlaylistTrackListFetcherType {
+/// A concrete implementation of PlaylistTracksFetcherType, that fetches tracks from Deezer's HTTP API
+final class PlaylistTracksFetcher: PlaylistTracksFetcherType {
 
     enum FetchError: Error {
         case invalidJSON
@@ -84,7 +84,7 @@ final class PlaylistTrackListFetcher: PlaylistTrackListFetcherType {
 
 }
 
-extension PlaylistTrackListFetcher {
+extension PlaylistTracksFetcher {
 
     final class Track: PlaylistTrackFetchedType {
 

@@ -1,5 +1,5 @@
 //
-//  UserPlaylistsViewModel.swift
+//  PlaylistListViewModel.swift
 //  BetTest
 //
 //  Created by Maxime de Chalendar on 30/09/2017.
@@ -12,7 +12,7 @@ import RxCocoa
 
 // MARK: - Protocols
 /// A protocol representing a view model for a playlist
-protocol UserPlaylistViewModelType {
+protocol PlaylistViewModelType {
 
     var title: Variable<String> { get }
     var picture: Variable<URL?> { get }
@@ -24,9 +24,9 @@ protocol UserPlaylistViewModelType {
 }
 
 /// A protocol representing a view model for a list of playlists, that can grow over time
-protocol UserPlaylistListViewModelType {
+protocol PlaylistListViewModelType {
 
-    var playlists: Variable<[UserPlaylistViewModelType]> { get }
+    var playlists: Variable<[PlaylistViewModelType]> { get }
     var hasMore: Variable<Bool> { get }
 
     func loadMore() -> Observable<Void>
@@ -34,42 +34,42 @@ protocol UserPlaylistListViewModelType {
 }
 
 // MARK: - Implementation
-/// A concrete implementation of UserPlaylistListViewModelType,
-/// that stores a list of UserPlaylistViewModelType which can be observed
-final class UserPlaylistListViewModel: UserPlaylistListViewModelType {
+/// A concrete implementation of PlaylistListViewModelType,
+/// that stores a list of PlaylistViewModelType which can be observed
+final class PlaylistListViewModel: PlaylistListViewModelType {
 
     private let disposeBag = DisposeBag()
-    private let userPlaylistList: UserPlaylistListType
+    private let playlistList: PlaylistListType
 
-    let playlists = Variable<[UserPlaylistViewModelType]>([])
+    let playlists = Variable<[PlaylistViewModelType]>([])
     let hasMore = Variable(true)
 
-    init(userPlaylistList: UserPlaylistListType) {
-        self.userPlaylistList = userPlaylistList
+    init(playlistList: PlaylistListType) {
+        self.playlistList = playlistList
 
-        userPlaylistList.playlists.asObservable()
+        playlistList.playlists.asObservable()
             .map { $0.map(PlaylistViewModel.init) }
             .bind(to: self.playlists)
             .disposed(by: self.disposeBag)
 
-        userPlaylistList.hasMore.asObservable()
+        playlistList.hasMore.asObservable()
             .bind(to: self.hasMore)
             .disposed(by: self.disposeBag)
     }
 
     func loadMore() -> Observable<Void> {
-        return userPlaylistList.loadMore()
+        return playlistList.loadMore()
     }
 
 }
 
-extension UserPlaylistListViewModel {
+extension PlaylistListViewModel {
 
-    /// A concrete implementation of UserPlaylistViewModelType,
+    /// A concrete implementation of PlaylistViewModelType,
     /// that formats a playlist's data to display in on screen
-    final class PlaylistViewModel: UserPlaylistViewModelType {
+    final class PlaylistViewModel: PlaylistViewModelType {
 
-        private let playlist: UserPlaylistType
+        private let playlist: PlaylistType
         private let disposeBag = DisposeBag()
 
         let title = Variable<String>("")
@@ -81,7 +81,7 @@ extension UserPlaylistListViewModel {
             return playlist.trackList.flatMap(PlaylistTrackListViewModel.init)
         }
 
-        init(playlist: UserPlaylistType) {
+        init(playlist: PlaylistType) {
             self.playlist = playlist
 
             playlist.title.asObservable()

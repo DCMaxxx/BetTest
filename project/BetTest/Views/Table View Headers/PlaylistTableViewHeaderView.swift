@@ -18,7 +18,7 @@ final class PlaylistTableViewHeaderView: UIView {
 
     private var disposeBag: DisposeBag?
 
-    var viewModel: UserPlaylistViewModelType? {
+    var viewModel: PlaylistViewModelType? {
         didSet {
             disposeBag = nil
             configureInterface()

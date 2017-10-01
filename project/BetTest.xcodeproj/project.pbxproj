@@ -14,14 +14,14 @@
 		9C1B29311F7E7B4300B99850 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1B292E1F7E7B4300B99850 /* RxCocoa.framework */; };
 		9C1B29321F7E7B4300B99850 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1B292F1F7E7B4300B99850 /* RxSwift.framework */; };
 		9C99BEE01F7FC3AD00F0F7C6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C99BEDF1F7FC3AD00F0F7C6 /* Alamofire.framework */; };
-		9C99BEE31F7FC46D00F0F7C6 /* UserPlaylistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C99BEE21F7FC46D00F0F7C6 /* UserPlaylistList.swift */; };
-		9C99BEE81F7FCC3300F0F7C6 /* UserPlaylistsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C99BEE71F7FCC3300F0F7C6 /* UserPlaylistsFetcher.swift */; };
+		9C99BEE31F7FC46D00F0F7C6 /* PlaylistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C99BEE21F7FC46D00F0F7C6 /* PlaylistList.swift */; };
+		9C99BEE81F7FCC3300F0F7C6 /* PlaylistsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C99BEE71F7FCC3300F0F7C6 /* PlaylistsFetcher.swift */; };
 		9C99BEEA1F7FD1A700F0F7C6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C99BEE91F7FD1A700F0F7C6 /* SwiftyJSON.framework */; };
-		9C99BEED1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C99BEEC1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift */; };
+		9C99BEED1F7FDAF200F0F7C6 /* PlaylistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C99BEEC1F7FDAF200F0F7C6 /* PlaylistListViewModel.swift */; };
 		9CA639D91F7FE820001CD835 /* PlaylistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639D81F7FE820001CD835 /* PlaylistListViewController.swift */; };
 		9CA639DD1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639DC1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift */; };
 		9CA639DF1F7FE9AD001CD835 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA639DE1F7FE9AD001CD835 /* Reusable.framework */; };
-		9CA639E11F7FF839001CD835 /* PlaylistTrackListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E01F7FF839001CD835 /* PlaylistTrackListFetcher.swift */; };
+		9CA639E11F7FF839001CD835 /* PlaylistTracksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E01F7FF839001CD835 /* PlaylistTracksFetcher.swift */; };
 		9CA639E61F801018001CD835 /* PlaylistTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E51F801018001CD835 /* PlaylistTrackList.swift */; };
 		9CA639E81F801262001CD835 /* PlaylistTrackListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E71F801262001CD835 /* PlaylistTrackListViewModel.swift */; };
 		9CA639EA1F80152F001CD835 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E91F80152F001CD835 /* TrackTableViewCell.swift */; };
@@ -57,14 +57,14 @@
 		9C1B292E1F7E7B4300B99850 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Frameworks/RxCocoa.framework; sourceTree = "<group>"; };
 		9C1B292F1F7E7B4300B99850 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Frameworks/RxSwift.framework; sourceTree = "<group>"; };
 		9C99BEDF1F7FC3AD00F0F7C6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../dependencies/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		9C99BEE21F7FC46D00F0F7C6 /* UserPlaylistList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPlaylistList.swift; path = Models/UserPlaylistList.swift; sourceTree = "<group>"; };
-		9C99BEE71F7FCC3300F0F7C6 /* UserPlaylistsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPlaylistsFetcher.swift; path = Fetchers/UserPlaylistsFetcher.swift; sourceTree = "<group>"; };
+		9C99BEE21F7FC46D00F0F7C6 /* PlaylistList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = PlaylistList.swift; path = Models/PlaylistList.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9C99BEE71F7FCC3300F0F7C6 /* PlaylistsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = PlaylistsFetcher.swift; path = Fetchers/PlaylistsFetcher.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9C99BEE91F7FD1A700F0F7C6 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../dependencies/Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		9C99BEEC1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPlaylistsViewModel.swift; path = "View Models/UserPlaylistsViewModel.swift"; sourceTree = "<group>"; };
+		9C99BEEC1F7FDAF200F0F7C6 /* PlaylistListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistListViewModel.swift; path = "View Models/PlaylistListViewModel.swift"; sourceTree = "<group>"; };
 		9CA639D81F7FE820001CD835 /* PlaylistListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistListViewController.swift; path = "BetTest/View Controllers/Playlist list/PlaylistListViewController.swift"; sourceTree = SOURCE_ROOT; };
 		9CA639DC1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistCollectionViewCell.swift; path = Views/Cells/PlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CA639DE1F7FE9AD001CD835 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = ../dependencies/Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
-		9CA639E01F7FF839001CD835 /* PlaylistTrackListFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackListFetcher.swift; path = Fetchers/PlaylistTrackListFetcher.swift; sourceTree = "<group>"; };
+		9CA639E01F7FF839001CD835 /* PlaylistTracksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTracksFetcher.swift; path = Fetchers/PlaylistTracksFetcher.swift; sourceTree = "<group>"; };
 		9CA639E51F801018001CD835 /* PlaylistTrackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackList.swift; path = Models/PlaylistTrackList.swift; sourceTree = "<group>"; };
 		9CA639E71F801262001CD835 /* PlaylistTrackListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackListViewModel.swift; path = "View Models/PlaylistTrackListViewModel.swift"; sourceTree = "<group>"; };
 		9CA639E91F80152F001CD835 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackTableViewCell.swift; path = Views/Cells/TrackTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		9C99BEE11F7FC42D00F0F7C6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9C99BEE21F7FC46D00F0F7C6 /* UserPlaylistList.swift */,
+				9C99BEE21F7FC46D00F0F7C6 /* PlaylistList.swift */,
 				9CA639E51F801018001CD835 /* PlaylistTrackList.swift */,
 			);
 			name = Models;
@@ -143,8 +143,8 @@
 		9C99BEE61F7FCC0900F0F7C6 /* Fetchers */ = {
 			isa = PBXGroup;
 			children = (
-				9C99BEE71F7FCC3300F0F7C6 /* UserPlaylistsFetcher.swift */,
-				9CA639E01F7FF839001CD835 /* PlaylistTrackListFetcher.swift */,
+				9C99BEE71F7FCC3300F0F7C6 /* PlaylistsFetcher.swift */,
+				9CA639E01F7FF839001CD835 /* PlaylistTracksFetcher.swift */,
 				9CA639F01F80D3AA001CD835 /* URLImageFetcher.swift */,
 			);
 			name = Fetchers;
@@ -153,7 +153,7 @@
 		9C99BEEB1F7FDAD500F0F7C6 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				9C99BEEC1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift */,
+				9C99BEEC1F7FDAF200F0F7C6 /* PlaylistListViewModel.swift */,
 				9CA639E71F801262001CD835 /* PlaylistTrackListViewModel.swift */,
 			);
 			name = "View Models";
@@ -503,21 +503,21 @@
 				9CA639F71F80E001001CD835 /* FixedColumnsLayout.swift in Sources */,
 				9CFC76A31F80FE6B00C968ED /* DurationFormatter.swift in Sources */,
 				9CA639DD1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift in Sources */,
-				9C99BEED1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift in Sources */,
+				9C99BEED1F7FDAF200F0F7C6 /* PlaylistListViewModel.swift in Sources */,
 				9CA639D91F7FE820001CD835 /* PlaylistListViewController.swift in Sources */,
 				9CA639E61F801018001CD835 /* PlaylistTrackList.swift in Sources */,
 				9CA639EC1F801627001CD835 /* PlaylistViewController.swift in Sources */,
 				9C1B291B1F7E6BC500B99850 /* Storyboards.swift in Sources */,
 				9CA639E81F801262001CD835 /* PlaylistTrackListViewModel.swift in Sources */,
-				9C99BEE31F7FC46D00F0F7C6 /* UserPlaylistList.swift in Sources */,
+				9C99BEE31F7FC46D00F0F7C6 /* PlaylistList.swift in Sources */,
 				9CA639F41F80DD97001CD835 /* Constants.swift in Sources */,
 				9CFC76A01F80FAE200C968ED /* PlaylistTableViewHeaderView.swift in Sources */,
 				9CA639F11F80D3AA001CD835 /* URLImageFetcher.swift in Sources */,
 				9CA639EA1F80152F001CD835 /* TrackTableViewCell.swift in Sources */,
 				9C1B29241F7E6EDE00B99850 /* Localizable.swift in Sources */,
-				9C99BEE81F7FCC3300F0F7C6 /* UserPlaylistsFetcher.swift in Sources */,
+				9C99BEE81F7FCC3300F0F7C6 /* PlaylistsFetcher.swift in Sources */,
 				9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */,
-				9CA639E11F7FF839001CD835 /* PlaylistTrackListFetcher.swift in Sources */,
+				9CA639E11F7FF839001CD835 /* PlaylistTracksFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

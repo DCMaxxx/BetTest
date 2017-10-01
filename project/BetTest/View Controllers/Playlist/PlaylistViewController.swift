@@ -10,18 +10,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-/// A view controller responsible for displaying a single UserPlaylistViewModelType,
+/// A view controller responsible for displaying a single PlaylistViewModelType,
 /// its PlaylistTrackListViewModelType, and to load more tracks on scroll
 final class PlaylistViewController: UIViewController {
 
-    static func instantiate(viewModel: UserPlaylistViewModelType) -> PlaylistViewController {
+    static func instantiate(viewModel: PlaylistViewModelType) -> PlaylistViewController {
         let controller = StoryboardScene.Main.playlistViewController.instantiate()
         controller.viewModel = viewModel
         controller.trackListViewModel = viewModel.trackListViewModel
         return controller
     }
 
-    fileprivate var viewModel: UserPlaylistViewModelType!
+    fileprivate var viewModel: PlaylistViewModelType!
     fileprivate var trackListViewModel: PlaylistTrackListViewModelType?
     fileprivate let disposeBag = DisposeBag()
 

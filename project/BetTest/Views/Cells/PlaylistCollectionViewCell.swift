@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Reusable
 
-/// A cell responsible for displaying a UserPlaylistViewModelType
+/// A cell responsible for displaying a PlaylistViewModelType
 final class PlaylistCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var coverImageView: UIImageView!
@@ -19,7 +19,7 @@ final class PlaylistCollectionViewCell: UICollectionViewCell {
 
     private var disposeBag: DisposeBag?
 
-    var viewModel: UserPlaylistViewModelType? {
+    var viewModel: PlaylistViewModelType? {
         didSet {
             disposeBag = nil
             configureInterface()

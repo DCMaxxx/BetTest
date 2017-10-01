@@ -1,5 +1,5 @@
 //
-//  UserPlaylistsFetcher.swift
+//  PlaylistsFetcher.swift
 //  BetTest
 //
 //  Created by Maxime de Chalendar on 30/09/2017.
@@ -12,29 +12,29 @@ import Alamofire
 import SwiftyJSON
 
 // MARK: - Protocols
-/// A protocol representing a raw playlist, given by a UserPlaylistsFetcherType
-protocol UserPlaylistFetchedType {
+/// A protocol representing a raw playlist, given by a PlaylistsFetcherType
+protocol PlaylistFetchedType {
 
     var title: String { get }
     var picture: URL? { get }
     var author: String { get }
     var duration: TimeInterval { get }
-    var trackListFetcher: PlaylistTrackListFetcherType? { get }
+    var trackListFetcher: PlaylistTracksFetcherType? { get }
 
 }
 
 /// A protocol representing an object that can fetch playlists
-protocol UserPlaylistsFetcherType {
+protocol PlaylistsFetcherType {
 
     var hasMore: Variable<Bool> { get }
 
-    func fetch() -> Observable<[UserPlaylistFetchedType]>
+    func fetch() -> Observable<[PlaylistFetchedType]>
 
 }
 
 // MARK: - Implementation
-/// A concrete implementation of UserPlaylistsFetcherType, that fetches playlists from Deezer's HTTP API
-final class UserPlaylistsFetcher: UserPlaylistsFetcherType {
+/// A concrete implementation of PlaylistsFetcherType, that fetches playlists from Deezer's HTTP API
+final class PlaylistsFetcher: PlaylistsFetcherType {
 
     enum FetchError: Error {
         case invalidJSON
@@ -51,11 +51,11 @@ final class UserPlaylistsFetcher: UserPlaylistsFetcherType {
 
     init(userID: String) {
         self.userID = userID
-        self.nextPlaylistsURL = UserPlaylistsFetcher.baseFetcherURL(userID: userID)
+        self.nextPlaylistsURL = PlaylistsFetcher.baseFetcherURL(userID: userID)
     }
 
-    func fetch() -> Observable<[UserPlaylistFetchedType]> {
-        let subject = PublishSubject<[UserPlaylistFetchedType]>()
+    func fetch() -> Observable<[PlaylistFetchedType]> {
+        let subject = PublishSubject<[PlaylistFetchedType]>()
         let observer = subject.asObserver()
 
         guard let url = nextPlaylistsURL else {
@@ -93,10 +93,10 @@ final class UserPlaylistsFetcher: UserPlaylistsFetcherType {
 
 }
 
-extension UserPlaylistsFetcher {
+extension PlaylistsFetcher {
 
-    /// A concrete implementation or UserPlaylistFetchedType, that parses a Deezer playlist, represented as a JSON
-    final class Playlist: UserPlaylistFetchedType {
+    /// A concrete implementation or PlaylistFetchedType, that parses a Deezer playlist, represented as a JSON
+    final class Playlist: PlaylistFetchedType {
 
         private let tracks: URL?
 
@@ -105,8 +105,8 @@ extension UserPlaylistsFetcher {
         let author: String
         let duration: TimeInterval
 
-        var trackListFetcher: PlaylistTrackListFetcherType? {
-            return tracks.flatMap(PlaylistTrackListFetcher.init)
+        var trackListFetcher: PlaylistTracksFetcherType? {
+            return tracks.flatMap(PlaylistTracksFetcher.init)
         }
 
         fileprivate init?(json: JSON) {
