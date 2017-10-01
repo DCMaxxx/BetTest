@@ -7,3 +7,5 @@
 */
 
 "PlaylistListViewController.title" = "Playlists";
+
+"PlaylistViewController.author" = "By %@";

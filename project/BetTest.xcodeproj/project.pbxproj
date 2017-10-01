@@ -34,6 +34,7 @@
 		9CF28F561F7E371E0006A957 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF28F551F7E371E0006A957 /* Assets.xcassets */; };
 		9CF28F591F7E371E0006A957 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF28F571F7E371E0006A957 /* LaunchScreen.storyboard */; };
 		9CF28F7B1F7E42F90006A957 /* BetTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF28F7A1F7E42F90006A957 /* BetTestTests.swift */; };
+		9CFC76A01F80FAE200C968ED /* PlaylistTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC769F1F80FAE200C968ED /* PlaylistTableViewHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		9CF28F5F1F7E371E0006A957 /* BetTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF28F771F7E42C20006A957 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BetTestTests/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		9CF28F7A1F7E42F90006A957 /* BetTestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BetTestTests.swift; path = BetTestTests/Tests/BetTestTests.swift; sourceTree = SOURCE_ROOT; };
+		9CFC769F1F80FAE200C968ED /* PlaylistTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTableViewHeaderView.swift; path = "Views/Table View Headers/PlaylistTableViewHeaderView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				9CA639F51F80DFB7001CD835 /* Collection View Layouts */,
+				9CFC76A11F80FAE500C968ED /* Table View Headers */,
 				9CA639DB1F7FE8A4001CD835 /* Cells */,
 			);
 			name = Views;
@@ -309,6 +312,14 @@
 				9CF28F7A1F7E42F90006A957 /* BetTestTests.swift */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		9CFC76A11F80FAE500C968ED /* Table View Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9CFC769F1F80FAE200C968ED /* PlaylistTableViewHeaderView.swift */,
+			);
+			name = "Table View Headers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +499,7 @@
 				9CA639E81F801262001CD835 /* PlaylistTrackListViewModel.swift in Sources */,
 				9C99BEE31F7FC46D00F0F7C6 /* UserPlaylistList.swift in Sources */,
 				9CA639F41F80DD97001CD835 /* Constants.swift in Sources */,
+				9CFC76A01F80FAE200C968ED /* PlaylistTableViewHeaderView.swift in Sources */,
 				9CA639F11F80D3AA001CD835 /* URLImageFetcher.swift in Sources */,
 				9CA639EA1F80152F001CD835 /* TrackTableViewCell.swift in Sources */,
 				9C1B29241F7E6EDE00B99850 /* Localizable.swift in Sources */,

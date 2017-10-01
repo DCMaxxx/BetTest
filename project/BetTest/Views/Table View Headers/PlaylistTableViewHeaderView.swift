@@ -1,21 +1,20 @@
 //
-//  PlaylistCollectionViewCell.swift
+//  PlaylistTableViewHeaderView.swift
 //  BetTest
 //
-//  Created by Maxime de Chalendar on 30/09/2017.
+//  Created by Maxime de Chalendar on 01/10/2017.
 //  Copyright © 2017 Maxime de Chalendar. All rights reserved.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
-import Reusable
 
-/// A cell responsible for displaying a UserPlaylistViewModelType
-final class PlaylistCollectionViewCell: UICollectionViewCell {
+final class PlaylistTableViewHeaderView: UIView {
 
     @IBOutlet private weak var coverImageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
 
     private var disposeBag: DisposeBag?
 
@@ -26,22 +25,24 @@ final class PlaylistCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    override func prepareForReuse() {
-        viewModel = nil
-    }
-
     private func configureInterface() {
         guard let viewModel = viewModel else {
-            coverImageView.image = nil
-            titleLabel.text = nil
+            coverImageView.image = #imageLiteral(resourceName: "cover-placeholder")
+            authorLabel.text = nil
+            durationLabel.text = nil
             return
         }
 
         let disposeBag = DisposeBag()
         self.disposeBag = disposeBag
 
-        viewModel.title.asObservable()
-            .bind(to: titleLabel.rx.text)
+        viewModel.author.asObservable()
+            .map { L10n.Playlistviewcontroller.author($0) }
+            .bind(to: authorLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.formattedDuration.asObservable()
+            .bind(to: durationLabel.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.picture.asObservable()
@@ -54,9 +55,5 @@ final class PlaylistCollectionViewCell: UICollectionViewCell {
             .bind(to: coverImageView.rx.image)
             .disposed(by: disposeBag)
     }
-
-}
-
-extension PlaylistCollectionViewCell: Reusable {
 
 }

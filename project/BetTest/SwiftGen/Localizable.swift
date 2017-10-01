@@ -11,6 +11,13 @@ enum L10n {
     /// Playlists
     static let title = L10n.tr("Localizable", "PlaylistListViewController.title")
   }
+
+  enum Playlistviewcontroller {
+    /// By %@
+    static func author(_ p1: String) -> String {
+      return L10n.tr("Localizable", "PlaylistViewController.author", p1)
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 

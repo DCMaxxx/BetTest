@@ -25,13 +25,14 @@ final class PlaylistViewController: UIViewController {
     fileprivate var trackListViewModel: PlaylistTrackListViewModelType?
     fileprivate let disposeBag = DisposeBag()
 
+    @IBOutlet fileprivate weak var tableHeaderView: PlaylistTableViewHeaderView!
     @IBOutlet fileprivate weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         bindTitle()
-        bindTableViewItems()
+        bindTableView()
         bindLoadMore()
     }
 
@@ -56,7 +57,16 @@ extension PlaylistViewController {
 // MARK: - Data source
 extension PlaylistViewController {
 
-    fileprivate func bindTableViewItems() {
+    fileprivate func bindTableView() {
+        bindTableViewHeader()
+        bindTableViewItems()
+    }
+
+    private func bindTableViewHeader() {
+        tableHeaderView.viewModel = viewModel
+    }
+
+    private func bindTableViewItems() {
         guard let trackListViewModel = trackListViewModel else {
             return
         }
