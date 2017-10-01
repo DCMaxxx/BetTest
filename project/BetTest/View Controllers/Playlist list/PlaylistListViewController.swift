@@ -31,6 +31,7 @@ final class PlaylistListViewController: UIViewController {
         configureTitle()
         bindCollectionViewItems()
         bindLoadMore()
+        bindSelection()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -115,6 +116,29 @@ extension PlaylistListViewController {
 
     fileprivate func setNetworkIndicatorVisibility(visible: Bool) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = visible
+    }
+
+}
+
+// MARK: - Selection
+extension PlaylistListViewController {
+
+    fileprivate func bindSelection() {
+        collectionView.rx.itemSelected.asObservable()
+            .subscribe(onNext: { [unowned self] indexPath in
+                let viewModel = self.getViewModel(at: indexPath)
+                let controller = PlaylistViewController.instantiate(viewModel: viewModel)
+                self.navigate(to: controller)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func getViewModel(at indexPath: IndexPath) -> UserPlaylistViewModelType {
+        return viewModel.playlists.value[indexPath.row]
+    }
+
+    private func navigate(to controller: UIViewController) {
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
 }

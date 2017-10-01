@@ -58,6 +58,8 @@ enum StoryboardScene {
     static let storyboardName = "Main"
 
     static let playlistListViewController = SceneType<BetTest.PlaylistListViewController>(storyboard: Main.self, identifier: "PlaylistListViewController")
+
+    static let playlistViewController = SceneType<BetTest.PlaylistViewController>(storyboard: Main.self, identifier: "PlaylistViewController")
   }
 }
 

@@ -24,6 +24,8 @@
 		9CA639E11F7FF839001CD835 /* PlaylistTrackListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E01F7FF839001CD835 /* PlaylistTrackListFetcher.swift */; };
 		9CA639E61F801018001CD835 /* PlaylistTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E51F801018001CD835 /* PlaylistTrackList.swift */; };
 		9CA639E81F801262001CD835 /* PlaylistTrackListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E71F801262001CD835 /* PlaylistTrackListViewModel.swift */; };
+		9CA639EA1F80152F001CD835 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E91F80152F001CD835 /* TrackTableViewCell.swift */; };
+		9CA639EC1F801627001CD835 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639EB1F801627001CD835 /* PlaylistViewController.swift */; };
 		9CA639F11F80D3AA001CD835 /* URLImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F01F80D3AA001CD835 /* URLImageFetcher.swift */; };
 		9CA639F41F80DD97001CD835 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F31F80DD97001CD835 /* Constants.swift */; };
 		9CA639F71F80E001001CD835 /* FixedColumnsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F61F80E001001CD835 /* FixedColumnsLayout.swift */; };
@@ -63,6 +65,8 @@
 		9CA639E01F7FF839001CD835 /* PlaylistTrackListFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackListFetcher.swift; path = Fetchers/PlaylistTrackListFetcher.swift; sourceTree = "<group>"; };
 		9CA639E51F801018001CD835 /* PlaylistTrackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackList.swift; path = Models/PlaylistTrackList.swift; sourceTree = "<group>"; };
 		9CA639E71F801262001CD835 /* PlaylistTrackListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackListViewModel.swift; path = "View Models/PlaylistTrackListViewModel.swift"; sourceTree = "<group>"; };
+		9CA639E91F80152F001CD835 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackTableViewCell.swift; path = Views/Cells/TrackTableViewCell.swift; sourceTree = "<group>"; };
+		9CA639EB1F801627001CD835 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistViewController.swift; path = "BetTest/View Controllers/Playlist/PlaylistViewController.swift"; sourceTree = SOURCE_ROOT; };
 		9CA639F01F80D3AA001CD835 /* URLImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLImageFetcher.swift; path = Fetchers/URLImageFetcher.swift; sourceTree = "<group>"; };
 		9CA639F31F80DD97001CD835 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Constants/Constants.swift; sourceTree = "<group>"; };
 		9CA639F61F80E001001CD835 /* FixedColumnsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedColumnsLayout.swift; path = "Views/Collection View Layouts/FixedColumnsLayout.swift"; sourceTree = "<group>"; };
@@ -164,8 +168,17 @@
 			isa = PBXGroup;
 			children = (
 				9CA639DC1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift */,
+				9CA639E91F80152F001CD835 /* TrackTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		9CA639ED1F80162D001CD835 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				9CA639EB1F801627001CD835 /* PlaylistViewController.swift */,
+			);
+			name = Playlist;
 			sourceTree = "<group>";
 		};
 		9CA639F21F80DD7E001CD835 /* Constants */ = {
@@ -234,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF28F731F7E40FD0006A957 /* Playlist list */,
+				9CA639ED1F80162D001CD835 /* Playlist */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -469,11 +483,13 @@
 				9C99BEED1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift in Sources */,
 				9CA639D91F7FE820001CD835 /* PlaylistListViewController.swift in Sources */,
 				9CA639E61F801018001CD835 /* PlaylistTrackList.swift in Sources */,
+				9CA639EC1F801627001CD835 /* PlaylistViewController.swift in Sources */,
 				9C1B291B1F7E6BC500B99850 /* Storyboards.swift in Sources */,
 				9CA639E81F801262001CD835 /* PlaylistTrackListViewModel.swift in Sources */,
 				9C99BEE31F7FC46D00F0F7C6 /* UserPlaylistList.swift in Sources */,
 				9CA639F41F80DD97001CD835 /* Constants.swift in Sources */,
 				9CA639F11F80D3AA001CD835 /* URLImageFetcher.swift in Sources */,
+				9CA639EA1F80152F001CD835 /* TrackTableViewCell.swift in Sources */,
 				9C1B29241F7E6EDE00B99850 /* Localizable.swift in Sources */,
 				9C99BEE81F7FCC3300F0F7C6 /* UserPlaylistsFetcher.swift in Sources */,
 				9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */,
