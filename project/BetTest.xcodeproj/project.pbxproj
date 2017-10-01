@@ -21,6 +21,9 @@
 		9CA639D91F7FE820001CD835 /* PlaylistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639D81F7FE820001CD835 /* PlaylistListViewController.swift */; };
 		9CA639DD1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639DC1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift */; };
 		9CA639DF1F7FE9AD001CD835 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA639DE1F7FE9AD001CD835 /* Reusable.framework */; };
+		9CA639E11F7FF839001CD835 /* PlaylistTrackListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E01F7FF839001CD835 /* PlaylistTrackListFetcher.swift */; };
+		9CA639E61F801018001CD835 /* PlaylistTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E51F801018001CD835 /* PlaylistTrackList.swift */; };
+		9CA639E81F801262001CD835 /* PlaylistTrackListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639E71F801262001CD835 /* PlaylistTrackListViewModel.swift */; };
 		9CA639F11F80D3AA001CD835 /* URLImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F01F80D3AA001CD835 /* URLImageFetcher.swift */; };
 		9CA639F41F80DD97001CD835 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F31F80DD97001CD835 /* Constants.swift */; };
 		9CA639F71F80E001001CD835 /* FixedColumnsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA639F61F80E001001CD835 /* FixedColumnsLayout.swift */; };
@@ -57,6 +60,9 @@
 		9CA639D81F7FE820001CD835 /* PlaylistListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistListViewController.swift; path = "BetTest/View Controllers/Playlist list/PlaylistListViewController.swift"; sourceTree = SOURCE_ROOT; };
 		9CA639DC1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistCollectionViewCell.swift; path = Views/Cells/PlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CA639DE1F7FE9AD001CD835 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = ../dependencies/Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		9CA639E01F7FF839001CD835 /* PlaylistTrackListFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackListFetcher.swift; path = Fetchers/PlaylistTrackListFetcher.swift; sourceTree = "<group>"; };
+		9CA639E51F801018001CD835 /* PlaylistTrackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackList.swift; path = Models/PlaylistTrackList.swift; sourceTree = "<group>"; };
+		9CA639E71F801262001CD835 /* PlaylistTrackListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistTrackListViewModel.swift; path = "View Models/PlaylistTrackListViewModel.swift"; sourceTree = "<group>"; };
 		9CA639F01F80D3AA001CD835 /* URLImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLImageFetcher.swift; path = Fetchers/URLImageFetcher.swift; sourceTree = "<group>"; };
 		9CA639F31F80DD97001CD835 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Constants/Constants.swift; sourceTree = "<group>"; };
 		9CA639F61F80E001001CD835 /* FixedColumnsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedColumnsLayout.swift; path = "Views/Collection View Layouts/FixedColumnsLayout.swift"; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				9C99BEE21F7FC46D00F0F7C6 /* UserPlaylistList.swift */,
+				9CA639E51F801018001CD835 /* PlaylistTrackList.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				9C99BEE71F7FCC3300F0F7C6 /* UserPlaylistsFetcher.swift */,
+				9CA639E01F7FF839001CD835 /* PlaylistTrackListFetcher.swift */,
 				9CA639F01F80D3AA001CD835 /* URLImageFetcher.swift */,
 			);
 			name = Fetchers;
@@ -138,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				9C99BEEC1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift */,
+				9CA639E71F801262001CD835 /* PlaylistTrackListViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -459,13 +468,16 @@
 				9CA639DD1F7FE8C7001CD835 /* PlaylistCollectionViewCell.swift in Sources */,
 				9C99BEED1F7FDAF200F0F7C6 /* UserPlaylistsViewModel.swift in Sources */,
 				9CA639D91F7FE820001CD835 /* PlaylistListViewController.swift in Sources */,
+				9CA639E61F801018001CD835 /* PlaylistTrackList.swift in Sources */,
 				9C1B291B1F7E6BC500B99850 /* Storyboards.swift in Sources */,
+				9CA639E81F801262001CD835 /* PlaylistTrackListViewModel.swift in Sources */,
 				9C99BEE31F7FC46D00F0F7C6 /* UserPlaylistList.swift in Sources */,
 				9CA639F41F80DD97001CD835 /* Constants.swift in Sources */,
 				9CA639F11F80D3AA001CD835 /* URLImageFetcher.swift in Sources */,
 				9C1B29241F7E6EDE00B99850 /* Localizable.swift in Sources */,
 				9C99BEE81F7FCC3300F0F7C6 /* UserPlaylistsFetcher.swift in Sources */,
 				9CF28F4F1F7E371E0006A957 /* AppDelegate.swift in Sources */,
+				9CA639E11F7FF839001CD835 /* PlaylistTrackListFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
