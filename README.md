@@ -9,7 +9,7 @@ Everything needed to build the project on the iOS simulator is included in this 
 Opening the `.xcodeproj` file is the only step to get started.   
 Third party tools and their configuration are described [below](#Third party tools).
 ```
-git clone --recursive git@gitlab.com:DCMaxxx/bettest.git
+git clone git@gitlab.com:DCMaxxx/bettest.git
 cd bettest/project
 open BetTest.xcodeproj
 ```
