@@ -87,7 +87,7 @@ In this example, I haven't implemented a generic way to navigate from a view con
 The requirements states that 
 > Display a playlist consist of displaying a header in a collapsing toolbar, showing playlist cover, title, author, formatted duration  
 
-However, as a collapsing toolbar is an Android component, so I assumed this was made for Android. I've simply implemented it using the navigationController's navigationBar for the title, and the tableView's tableHeaderView for the rest of the informations.  
+However, as a collapsing toolbar is an Android component, so I assumed this was written for Android. I've simply implemented it using the navigationController's navigationBar for the title, and the tableView's tableHeaderView for the rest of the informations.  
 If I had to mimic Android's collapsing toolbar, I'd have hidden the navigationBar, added an inset to the tableView's top, and added a view that adapts it size based on the tableView's contentOffset.  
 Or, depending on the context, if the layout was more complex, I'd use a custom collectionView layout.
 
