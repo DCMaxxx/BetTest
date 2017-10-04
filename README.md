@@ -9,7 +9,7 @@ Everything needed to build the project on the iOS simulator is included in this 
 Opening the `.xcodeproj` file is the only step to get started.   
 Third party tools and their configuration are described [below](#third-party-tools).
 ```
-git clone git@gitlab.com:DCMaxxx/bettest.git
+git clone git@github.com:DCMaxxx/BetTest.git
 cd bettest/project
 open BetTest.xcodeproj
 ```
@@ -62,16 +62,13 @@ There might be places where you'd have done it differently, and this code is com
 ## Layers
 
 ### Fetchers
-Fetchers are the lowest-level of the layers.  
-Their responsibilities are to fetch and expose a list of raw objects ('FetchedObject').
+Fetchers are the objects at the bottom of the code layers. Their responsibilities are to fetch and expose a list of raw objects ('FetchedObject').
 
 ### Models
-Models represents an object whose properties can be observed.  
-They can be initialized using FetchedObjects.
+Models represents an object whose properties can be observed. They can be initialized using FetchedObjects.
 
 ### ViewModels
-ViewModels represents an object whose properties are formatted and can be displayed as-is, and can be observed.  
-They can be initialized using Models.
+ViewModels represents an object whose properties are formatted and can be displayed as-is, and can be observed. They can be initialized using Models.
 
 ## Notes
 
