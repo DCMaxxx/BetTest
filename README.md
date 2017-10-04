@@ -7,7 +7,7 @@ Basically, it simply displays a list of Deezer playlists for a given user, and l
 
 Everything needed to build the project on the iOS simulator is included in this repo, there's no heavy dependency needed.  
 Opening the `.xcodeproj` file is the only step to get started.   
-Third party tools and their configuration are described [below](#Third party tools).
+Third party tools and their configuration are described [below](#third-party-tools).
 ```
 git clone git@gitlab.com:DCMaxxx/bettest.git
 cd bettest/project
